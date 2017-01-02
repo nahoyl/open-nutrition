@@ -1,7 +1,14 @@
+Site des commandes git :
 https://gist.github.com/aquelito/8596717
 
 Ajouter un changement  : 
+$ git add -A (Pour ajouter tous les fichiers modifier)
+$ git commit -m "message"
+$ git push
 
-git add -A (Pour ajouter tous les fichiers modifier)
+Recupérer la dernière version :
+$ git pull
 
-git statue (les statuts)
+Connaitre le status des fichiers
+$ git status (les statuts)
+
