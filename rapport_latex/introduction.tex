@@ -1,0 +1,32 @@
+L'objectif du projet est de fournir une application capable de proposer différentes offres de repas équilibrées selon les critères anthropomorphique de l'utilisateur et de son budget. 
+Elle a pour but de guider les étudiants dans le choix de leurs repas et à les sensibiliser sur l'importance de leur équilibre alimentaire qui est corrélé à leur budget et leurs envies gastronomiques ponctuelles.
+
+
+L'application devra être accessible par téléphone ou par navigateur web. Les étudiants en biologie seront chargées de mettre à jour le contenu (composition des aliments, les produits, les recettes et certaine vidéo de Blabla'plat).
+La mise à jour des repas, recettes ou encore des produits suggérés par l'application sera collaborative. Les utilisateurs seront invités à faire des propositions qui devront être validés par les étudiants en biologie pour être ajoutées.
+
+\section{Menus}
+
+Les menus sont composés de plusieurs plats/desserts. Si l'utilisateur précise une allergie, envie, ou un régime alimentaire (bio, vegan...), les menus sont adaptés pour la personne. Un menu peut aussi être créé à partir d'un plat choisi par l'utilisateur, afin de compléter son repas de manière équilibrée. Un repas du soir peut être proposé afin d'équilibrer le repas du midi. Le repas du midi concerne les menus que propose le Crous dans les cafétérias.
+
+Les menus peuvent avoir plusieurs caractéristiques en même temps (liste non exhaustive):
+\begin{itemize}
+\item Budget : Le prix est-il abordable? (mettre une note/un indicateur?)
+\item Santé : Est-il bon pour la santé/équilibré? (mettre une note/un indicateur?)
+\item Végétarien : Est-il compatible avec les régimes végétariens/végétaliens? plusieurs régime possible.
+\item Local : Pour le repas du soir, le repas est-il fait avec les produits locaux?
+\item Non-équilibré : Pour manger bon sans se soucier de l'équilibre (comparer les likes?)
+\end{itemize}
+
+\section{Plats}
+Les plats sont composés d'ingrédients, eux même comprenant une certaine quantité de macromolécules bonnes (ou pas) pour le corps (protéines/glucides/…). Chaque ingrédients aura sa propre description.
+Il faut tenir compte des saisons des produit qui compose le plat.
+
+\section{Solution logicielle}
+L'application Open Nutrition doit être développé pour les mobiles iPhone et Android (PC en option). Nous avons choisi d'utiliser une web-app, qui a l'avantage de pouvoir s'affranchir des validations nécessaires pour que l'application apparaisse sur l'App Store mais surtout pour ne pas avoir à développer l'application en Java pour Android et Objective C pour Iphone. Si des solutions multi-platforms existent, elles ne permettent pas de passer outre les validations et nous rendent complètement dépendant de l'éditeur. Cette solutions ne prend en plus pas en compte les spécificités des 2 langages tel que l'affichage du SplashScreen qui est affiché au lancement d'applications iPhone mais pas sur Android. Nous perdons donc le contrôle du rendu final. 
+Une web-app est un site web (utilisant le HTML5) destiné au mobile, elle permet de cibler tous les types d'appareils (téléphone, tablette, PC). L'avantage est que nous pourrons développer une seul code pour les 2 platforms et que le rendu final sera contrôlé. Cependant nous ne pourrons pas bénéficier des avantages intrinsèques aux platforms tel que les animations avancées disponibles pour iOS.
+
+\subsection{Besoins informatiques} 
+Afin de mener à bien le projet, nous avons besoins d'un serveur web et d'une base de données accessible à partir de l'application. Une base de données devra être disponible localement sur le téléphone afin de permettre l'utilisation de l'application sans la connexion internet.
+Pour tester le rendu de l'application, nous aurons besoin de différentes platforms mobiles.
+

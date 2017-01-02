@@ -1,0 +1,74 @@
+\documentclass[a4paper, 12pt]{report}
+
+\usepackage[frenchb]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{listings}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{times}
+\usepackage{glossaries}
+
+%\makeglossaries
+
+
+\newcommand{\email}[1]{\href{mailto:#1}{\nolinkurl{#1}}}
+
+\title{Pre-Rapport de Projet \large \vskip 1ex Open Nutrition}
+\author{
+    Yohan {Liebart} |
+    Abdel {Ait Abdelloili} |
+    Gabriel {Laurens}
+}
+\date{\today}
+
+\begin{document}
+
+\makeatletter
+  \begin{titlepage}
+  \centering
+
+        {\LARGE \@title} \\
+    	\vspace{2em}
+        {\large \@author} \\
+        \vspace{1em}
+        Tuteur - Zohra Bellahsene, Christophe Blanc
+		    	
+    	\vspace{3em}
+          {\large \@date}\\
+    \vfill
+        \includegraphics[height=0.15\textheight]{images/logoIUT.eps}
+        \hfill
+        \includegraphics[height=0.15\textheight]{images/logoUM.eps}
+  \end{titlepage}
+\makeatother
+
+\tableofcontents
+
+\chapter{Introduction}
+\input{introduction}
+
+\chapter{Analyse}
+\input{environnement}
+
+%\chapter{Rapport technique}
+%\input{rapport-technique}
+
+%\chapter{Manuel utilisateur}
+%\input{manuel}
+
+%\chapter{Conclusion}
+%\input{conclusion}
+
+%\chapter{Annexes}
+%\input{annexes}
+
+%\bibliographystyle{plain}
+%\bibliography{biblio}
+
+%\printglossaries
+
+%\input{resume}
+
+\end{document}

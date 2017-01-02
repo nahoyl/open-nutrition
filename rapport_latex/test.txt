@@ -1,0 +1,19 @@
+\title{Rapport de Projet \large \vskip 1ex Open Nutrition}
+\author{
+    Yohan Liebart : \email{yohan.liebart@gmail.com}\and
+    Abdel Ait-Abdelloili : \email{aitabdelloili.abdel@gmail.com}\and
+    Gabriel Laurens : \email{konkage.kurokami@gmail.com}
+}
+\date{\today}
+
+\begin{document}
+
+\makeatletter
+  \begin{titlepage}
+  \centering
+
+       {\LARGE \@title} \\
+    	\vspace{2em}
+        {\large \@author} \\
+        \vspace{1em}
+        Tuteur - Zohra Bellahsene, Christophe Blanc
