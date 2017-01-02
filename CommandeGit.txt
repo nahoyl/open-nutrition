@@ -1,0 +1,7 @@
+https://gist.github.com/aquelito/8596717
+
+Ajouter un changement  : 
+
+git add -A (Pour ajouter tous les fichiers modifier)
+
+git statue (les statuts)
