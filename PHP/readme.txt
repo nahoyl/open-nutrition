@@ -1,0 +1,1 @@
+C'est l'architecture de base de l'appli, j'ai fait un modèle/controlleur/vues très générique qu'on pourra copier coller pour adapter à tous les objets (j'ai aussi deux projet php disponible au cas où y a des fonctions qui nous manquent)
