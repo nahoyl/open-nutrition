@@ -27,20 +27,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     <?php 
                                     $nbPlat = 3;
                                     foreach ($PlatCrous as $plat   ){
+                                        $nomPlat=str_replace(' ','',$plat->nomPlat);
                                         $nbPlat++;
                                         ?>
                                         
-                                        <li class="mdl-list__item mdl-list__item--two-line" id="<?php echo $plat->nomPlat;  ?>">
+                                        <li class="mdl-list__item mdl-list__item--two-line" id="<?php echo $nomPlat;  ?>">
 					<span class="mdl-list__item-primary-content">
 					  <i class="material-icons  mdl-list__item-avatar">person</i>
                                           
-					  <span><?php echo $plat->nomPlat; ?> </span>
+					  <span class='nomplat'><?php echo $plat->nomPlat; ?> </span>
 					  <span class="mdl-list__item-sub-title"><?php echo $plat->prixPlat; ?>€</span>
 					</span>
 
 					<span class="mdl-list__item-secondary-action">
 					  <label class="demo-list-radio mdl-radio mdl-js-radio mdl-js-ripple-effect" for="list-option2-<?php echo $nbPlat;  ?>">
-						<input type="radio" id="list-option2-<?php echo $nbPlat; ?>" class="mdl-radio__button" name="options" value="<?php echo $plat->nomPlat;  ?>" />
+						<input type="radio" id="list-option2-<?php echo $nbPlat; ?>" class="mdl-radio__button <?php echo $plat->typePlat ; ?>" name="<?php echo $plat->typePlat ; ?>" value="<?php echo $nomPlat;  ?>" />
 					  </label>
 					</span>
 				  </li>
@@ -79,18 +80,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     <?php 
                                     $nbEntree = 1;
                                     foreach ($EntreeCrous as $plat){
+                                        $nomPlat=str_replace(' ','',$plat->nomPlat);
                                         ?>
+                                    
 
-				  <li class="mdl-list__item mdl-list__item--two-line">
+				  <li class="mdl-list__item mdl-list__item--two-line" id="<?php echo $nomPlat;  ?>">
 					<span class="mdl-list__item-primary-content">
 					  <i class="material-icons  mdl-list__item-avatar">person</i>
-					  <span><?php echo $plat->nomPlat; ?> </span>
+					  <span class='nomplat'><?php echo $plat->nomPlat; ?> </span>
 					  <span class="mdl-list__item-sub-title"><?php echo $plat->prixPlat; ?>€</span>
 					</span>
 
 					<span class="mdl-list__item-secondary-action">
 					  <label class="demo-list-radio mdl-radio mdl-js-radio mdl-js-ripple-effect" for="list-option-<?php echo $nbEntree; ?>">
-						<input type="radio" id="list-option-<?php echo $nbEntree; ?>" class="mdl-radio__button" name="options" value="1" />
+						<input type="radio" id="list-option-<?php echo $nbEntree; ?>" class="mdl-radio__button <?php echo $plat->typePlat ; ?>" name="<?php echo $plat->typePlat ; ?>" value="<?php echo $nomPlat;  ?>" />
 					  </label>
 					</span>
 				  </li>
@@ -123,52 +126,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 				<div class="demo-card-square mdl-card mdl-shadow--2dp">
 				  <div class="mdl-card__title mdl-card--expand">
-				  
-					<div class="panier-card-wide mdl-card mdl-shadow--4dp">
-							  <div class="mdl-card__title">
-								<h2 class="mdl-card__title-text">Panier</h2>
-							  </div>
-							  <div class="mdl-card__supporting-text padding-bottom-top-0px abdel">
-							  
-							  <ul class="demo-list-control mdl-list width-auto padding-bottom-top-0px">
-							  
-								<li class="mdl-list__item mdl-list__item--two-line width-auto padding-bottom-top-0px">
-									<span class="mdl-list__item-primary-content">
-									  <i class="material-icons  mdl-list__item-avatar">person</i>
-									  <span>Yaourt</span>
-									</span>
-							  </li>
+					<h2 class="mdl-card__title-text">Faites votre choix</h2>
 
-								  <li class="mdl-list__item mdl-list__item--two-line width-auto padding-bottom-top-0px">
-									<span class="mdl-list__item-primary-content">
-									  <i class="material-icons  mdl-list__item-avatar">person</i>
-									  <span>Panni</span>
-									</span>
-
-								  </li>
-
-						</ul>
-							  
-								
-								
-								
-								
-								
-							  </div>
-								  <div class="mdl-card__supporting-text">
-								    Le plat n'est pas équilibré.
-								  </div>
-							  <div class="mdl-card__actions mdl-card--border">
-								<a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect btnabdel">
-								  Suggestion
-								</a>
-							  </div>
-							</div>
-					
-					
-					
-					
-					
 				  </div>
 				  <div class="mdl-card__supporting-text">
 
@@ -181,19 +140,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                       <?php 
                                     $nbDessert = 7;
                                     foreach ($DessertCrous as $plat){
+                                        $nomPlat=str_replace(' ','',$plat->nomPlat);
                                         ?>
 
 
-				  <li class="mdl-list__item mdl-list__item--two-line">
+				  <li class="mdl-list__item mdl-list__item--two-line" id="<?php echo $nomPlat;  ?>">
 					<span class="mdl-list__item-primary-content">
 					  <i class="material-icons  mdl-list__item-avatar">person</i>
-					  <span><?php echo $plat->nomPlat; ?> </span>
+					  <span class='nomplat'><?php echo $plat->nomPlat; ?> </span>
 					  <span class="mdl-list__item-sub-title"><?php echo $plat->prixPlat; ?>€</span>
 					</span>
 
 					<span class="mdl-list__item-secondary-action">
 					  <label class="demo-list-radio mdl-radio mdl-js-radio mdl-js-ripple-effect" for="list-option3-<?php echo $nbDessert; ?>">
-						<input type="radio" id="list-option3-<?php echo $nbDessert; ?>" class="mdl-radio__button" name="options" value="1" />
+						<input type="radio" id="list-option3-<?php echo $nbDessert; ?>" class="mdl-radio__button" name="<?php echo $plat->typePlat ; ?>" value="<?php echo $nomPlat;  ?>" />
 					  </label>
 					</span>
 				  </li>
