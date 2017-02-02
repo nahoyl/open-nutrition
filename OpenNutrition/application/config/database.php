@@ -75,8 +75,8 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
-	//'hostname' => 'infoimon',
+	//'hostname' => 'localhost',
+	'hostname' => 'infoimon',
 	'username' => 'aitabdelloilia',
 	'password' => '1107026887V',
 	'database' => 'aitabdelloilia',
