@@ -76,12 +76,16 @@ $query_builder = TRUE;
 $db['default'] = array(
 	'dsn'	=> '',
 	'hostname' => 'localhost',
-	'username' => 'root',
+    // a l'iut
 //	'username' => 'aitabdelloilia',
 //	'password' => '1107026887V',
-	'password' => '',
 //	'database' => 'aitabdelloilia',
+    // Local
+	'username' => 'root',
+	'password' => '',
 	'database' => 'open_nutrition',
+    
+    
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => TRUE,
