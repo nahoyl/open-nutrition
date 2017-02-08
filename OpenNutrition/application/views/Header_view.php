@@ -17,6 +17,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	</head>
 	
 	<body>
+
             <style>
 				.demo-card-square.mdl-card {
 				  width: auto;

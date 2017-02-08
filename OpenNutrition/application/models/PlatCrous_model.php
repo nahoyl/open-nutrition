@@ -14,8 +14,12 @@ if (!defined('BASEPATH'))
  * @author Abdel
  */
 class PlatCrous_model extends CI_Model  {
-    private $tablePlatCrous= 'platscrous';
-    private $tablePlat= 'plats';
+    private $tablePlatCrous = 'platscrous';
+    private $tablePlat = 'plats';
+    private $compose_ingredients = 'compose_ingredients';
+    private $ingredients = 'ingredients';
+    
+    
         public function getPlatCrousEntree() {
             
         return $this->db->select('*')
@@ -47,6 +51,30 @@ class PlatCrous_model extends CI_Model  {
                         ->order_by('typePlat')
                         ->get()
                         ->result();
+    }
+    
+    
+    public function getPlatIngrediant($plat){
+        return $this->db->select('*')
+                        ->from($this->tablePlatCrous)              
+                        ->join($this->compose_ingredients,'platscrous.nomPlat = compose_ingredients.nomPlat')
+                        ->join($this->ingredients,'ingredients.nomIngredient = compose_ingredients.nomIngredient')
+                        ->where('platscrous.nomPlat',$plat)
+                        ->get()
+                        ->result();
+        
+    }
+    public function getPlatNote($plat){
+        $notePlat = $this->db->select('note')
+                        ->from($this->tablePlat)
+                        ->where('nomPlat',$plat)
+                        ->get()
+                        ->result();
+        if(!empty($notePlat)){
+            return $notePlat[0]->note;
+            
+        }
+        return null;
     }
     
 }
