@@ -72,7 +72,7 @@ function existPanier(){
 function ajoutEntetePanier(){
 	var panier = '<div class="panier-card-wide mdl-card mdl-shadow--4dp">';
 			panier	+=' <div class="mdl-card__title">';
-			panier	+='<h2 class="mdl-card__title-text">Panier</h2></div>';
+			panier	+='<h2 class="mdl-card__title-text">Menu</h2></div>';
 			panier	+='<div class="mdl-card__supporting-text padding-bottom-top-0px">';
 			panier	+='<ul class="demo-list-control mdl-list width-auto padding-bottom-top-0px">';
 	return panier;
@@ -91,9 +91,9 @@ function ajouterElementPanier(nom, prix,type){
 function ajoutFinPanier(){
 	var finPanier = '</ul> </div> <div class="mdl-card__supporting-text">';
 		finPanier += 'Le plat n\'est pas équilibré. </div>';
-		finPanier +=' <div class="mdl-card__actions mdl-card--border">';
+		finPanier +=' <!--<div class="mdl-card__actions mdl-card--border">';
 		finPanier +='<a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect btnabdel">';
-		finPanier += ' Suggestion </a> </div> </div>';
+		finPanier += ' Suggestion </a> </div>--> </div>';
 							
 	return finPanier;
 	

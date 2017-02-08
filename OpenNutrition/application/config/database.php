@@ -75,11 +75,11 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-//	'hostname' => 'localhost',
+	'hostname' => 'localhost',
 //	'username' => 'root',
 	'username' => 'aitabdelloilia',
 	'password' => '1107026887V',
-	'password' => '',
+//	'password' => '',
 	'database' => 'aitabdelloilia',
 //	'database' => 'open_nutrition',
 	'dbdriver' => 'mysqli',
