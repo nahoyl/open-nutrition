@@ -20,4 +20,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		  </header>
 		  <div class="mdl-layout__drawer">
 			<span class="mdl-layout-title">Accueil</span>
+			    <nav class="mdl-navigation">
+			      <a class="mdl-navigation__link" href="">Accueil</a>
+			      <a class="mdl-navigation__link" href="">Ajouter un plat</a>
+
+			    </nav>
 		  </div>
