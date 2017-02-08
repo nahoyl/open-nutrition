@@ -6,7 +6,7 @@ function css_url($nom)
 
 function js_url($nom)
 {
-	return base_url() . 'assets/javascript/' . $nom . '.js';
+	return 'assets/javascript/' . $nom . '.js';
 }
 
 function img_url($nom)
