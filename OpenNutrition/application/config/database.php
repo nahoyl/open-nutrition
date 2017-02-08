@@ -76,21 +76,12 @@ $query_builder = TRUE;
 $db['default'] = array(
 	'dsn'	=> '',
 	'hostname' => 'localhost',
-<<<<<<< HEAD
 	'username' => 'root',
 //	'username' => 'aitabdelloilia',
 //	'password' => '1107026887V',
 	'password' => '',
 //	'database' => 'aitabdelloilia',
 	'database' => 'open_nutrition',
-=======
-//	'username' => 'root',
-	'username' => 'aitabdelloilia',
-	'password' => '1107026887V',
-//	'password' => '',
-	'database' => 'aitabdelloilia',
-//	'database' => 'open_nutrition',
->>>>>>> 5909e9573204c74ee767b6b23e7a79bcc93b3ed4
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => TRUE,
