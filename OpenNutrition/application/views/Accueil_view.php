@@ -3,41 +3,47 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 //var_dump($PlatCrous);
 ?>
 <style>
-                            .note{
-                                height: 40px;
-                                width: 40px;
-                                box-sizing: border-box;
-                                border-radius: 50%;
-                                font-size: 35px;
-                                text-align: center;
-                                color: #fff;
-                                float: left;
-                                margin-right: 16px;
-                                padding-top: 7px;
-                            }
-                            .noteA{
-                                background-color: #00cc00;
-                            }
+    .note{
+        height: 40px;
+        width: 40px;
+        box-sizing: border-box;
+        border-radius: 50%;
+        font-size: 35px;
+        text-align: center;
+        color: #fff;
+        float: left;
+        margin-right: 16px;
+        padding-top: 7px;
+    }
+    .noteA{
+        background-color: #00cc00;
+    }
 
-                            .noteB{
-                                background-color: #ffcc00;
-                            }
-                            .noteC{
-                                background-color: #ff751a;
-                            }
-                            .noteD{
-                                background-color: #FF00FF;
-                            }
-                            .noteE{
-                                background-color: #e60000;
-                            }
-                            .float-right{
-                                float: right;
-                                
-                            }
+    .noteB{
+        background-color: #ffcc00;
+    }
+    .noteC{
+        background-color: #ff751a;
+    }
+    .noteD{
+        background-color: #FF00FF;
+    }
+    .noteE{
+        background-color: #e60000;
+    }
+    .float-right{
+        float: right;
+
+    }
+    .mdl-dialog {
+        border: none;
+        box-shadow: 0 9px 46px 8px rgba(0, 0, 0, 0.14), 0 11px 15px -7px rgba(0, 0, 0, 0.12), 0 24px 38px 3px rgba(0, 0, 0, 0.2);
+        width: 275px; 
+
+    }
 
 
-                        </style>
+</style>
 
 <main class="mdl-layout__content">
 
@@ -106,7 +112,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                     <ul class="demo-list-control mdl-list">
 
-                        
+
 
                         <?php
                         $nbEntree = 1;
@@ -193,9 +199,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         </div>
     </section>
-</main>
-<dialog id="dialog" class="mdl-dialog">
-</dialog>
 
+</main>
+    <dialog id="dialog" class="mdl-dialog">
+</dialog>
 
 
