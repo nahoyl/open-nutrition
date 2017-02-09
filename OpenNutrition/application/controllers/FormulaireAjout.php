@@ -34,21 +34,25 @@ class FormulaireAjout extends CI_Controller {
         $this->form_validation->set_rules('dnom', 'Nom', 'required|min_length[2]|max_length[30]');
 
         //Validating Email Field
-        $this->form_validation->set_rules('dprix', 'Prix', 'required|');
+        $this->form_validation->set_rules('dprix', 'Prix', 'required');
 
+        $this->form_validation->set_rules('dtype', 'Type plat', 'required');
         //Validating Mobile no. Field
-        $this->form_validation->set_rules('dnote5C', 'Note 5C', 'required|');
+        $this->form_validation->set_rules('dnote5C', 'Note 5C', 'required');
 
         //Validating Address Field
-        $this->form_validation->set_rules('dnoteCO2', 'Note CO2', 'required|');
+        $this->form_validation->set_rules('dnoteCO2', 'Note CO2', 'required');
+
+
 
         if ($this->form_validation->run() == FALSE) {
             $this->load->view('Header_view');
+            $this->load->view('Nav_view_form');
             $this->load->view('NavGauche_view');
             $this->load->view('AjouterPlat_view');
             $this->load->view('Footer_view');
         } else {
-            //Setting values for tabel columns
+            //Setting values for table columns
             $data = array(
                 'nomPlat' => $this->input->post('dnom'),
                 'prixPlat' => $this->input->post('dprix'),
@@ -61,6 +65,7 @@ class FormulaireAjout extends CI_Controller {
 
             //Loading View
             $this->load->view('Header_view');
+            $this->load->view('Nav_view_form');
             $this->load->view('NavGauche_view');
             $this->load->view('AjouterPlat_view', $data);
             $this->load->view('Footer_view');
