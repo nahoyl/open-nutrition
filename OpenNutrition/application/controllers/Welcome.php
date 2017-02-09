@@ -39,6 +39,8 @@ class Welcome extends CI_Controller {
         
         public function getAllergeneIngredient($plat)
 	{
+            // enlever les espaces
+            $plat= str_replace("%20", " ", $plat);
             //$plat= $this->input->post('plat');
             $data["allergene"] = $this->PlatCrous->getPlatAllergene($plat);
             $data["nomPlat"] = $plat ;
