@@ -44,6 +44,7 @@ class Welcome extends CI_Controller {
             $plat= str_replace("%20", " ", $plat);
             //$plat= $this->input->post('plat');
             $data["allergene"] = $this->PlatCrous->getPlatAllergene($plat);
+            $data["Co2"] = $this->PlatCrous->getPlatCo2($plat);
             $data["nomPlat"] = $plat ;
             $data["notePlat"] = $this->PlatCrous->getPlatNote($plat) ;
             $this->load->view('Description_view',$data);

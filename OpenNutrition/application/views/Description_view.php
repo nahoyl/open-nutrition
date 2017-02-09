@@ -1,15 +1,17 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); 
 
 
-$ingr = "";
+$allerg = "";
 
 foreach ($allergene as $key => $value) {
-    $ingr .=" " . $value->nomAllergene ;
+    $allerg .=" " . $value->nomAllergene ;
     if (count($allergene) != $key + 1) {
-        $ingr .=",";
+        $allerg .=",";
     }
 }
-$ingr .= ".";
+
+
+$allerg .= ".";
 ?>
 
 
@@ -18,12 +20,12 @@ $ingr .= ".";
     <div class="mdl-dialog__content">
       <h4> Allergenes :</h4>
         <p class='allergene'>
-            <?php echo $ingr;?>
+            <?php echo $allerg;?>
         </p>
         
         <h4>Gaz a effet de serre :</h4>
         <p class="co2">
-            <?php echo $ingr;?>
+            <?php echo $Co2;?>
         </p>
       
       

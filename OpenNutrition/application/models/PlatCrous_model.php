@@ -86,6 +86,18 @@ class PlatCrous_model extends CI_Model  {
         }
         return null;
     }
+    public function getPlatCo2($plat){
+        $noteCO2 = $this->db->select('noteCO2')
+                        ->from($this->tablePlat)
+                        ->where('nomPlat',$plat)
+                        ->get()
+                        ->result();
+        if(!empty($noteCO2)){
+            return $noteCO2[0]->noteCO2;
+            
+        }
+        return null;
+    }
     
     public function calculNote($densiteEnergetique, $graissesSaturees, $sucreSimples, $sodium, $fruitsLegumesNoix, $fibres, $proteines) {
         $score = calculScroreNote($densiteEnergetique, $graissesSaturees, $sucreSimples, $sodium, $fruitsLegumesNoix, $fibres, $proteines);
