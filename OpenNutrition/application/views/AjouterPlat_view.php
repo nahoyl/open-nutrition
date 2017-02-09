@@ -59,8 +59,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </div>
             <br/>
 
-           <!-- Choix unique de la note 5C -->
             <h5>Note 5C</h5>
+            <!-- Choix unique de la note 5C -->
+            <!--
             <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect radio-type-plat" for="add-option-A">
               <input type="radio" id="add-option-A" class="mdl-radio__button" name="options-note" value="A">
               <span class="mdl-radio__label">A</span>
@@ -81,6 +82,43 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               <input type="radio" id="add-option-E" class="mdl-radio__button" name="options-note" value="E">
               <span class="mdl-radio__label">E</span>
             </label>
+            -->
+            <!-- Champ à remplir pour la note 5C -->
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="add-prixPlat">
+              <label class="mdl-textfield__label" for="add-prixPlat">Densité énergétique (KJ/100g)</label>
+              <span class="mdl-textfield__error">L'entrée n'est pas un chiffre</span>
+            </div>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="add-prixPlat">
+              <label class="mdl-textfield__label" for="add-prixPlat">Graisses saturées (g/100g)</label>
+              <span class="mdl-textfield__error">L'entrée n'est pas un chiffre</span>
+            </div>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="add-prixPlat">
+              <label class="mdl-textfield__label" for="add-prixPlat">Sucres simples (g/100g)</label>
+              <span class="mdl-textfield__error">L'entrée n'est pas un chiffre</span>
+            </div>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="add-prixPlat">
+              <label class="mdl-textfield__label" for="add-prixPlat">Sodium (mg/100g)</label>
+              <span class="mdl-textfield__error">L'entrée n'est pas un chiffre</span>
+            </div>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="add-prixPlat">
+              <label class="mdl-textfield__label" for="add-prixPlat">Fruits, Légumes et noix (g/100g)</label>
+              <span class="mdl-textfield__error">L'entrée n'est pas un chiffre</span>
+            </div>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="add-prixPlat">
+              <label class="mdl-textfield__label" for="add-prixPlat">Fibres (g/100g)</label>
+              <span class="mdl-textfield__error">L'entrée n'est pas un chiffre</span>
+            </div>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="add-prixPlat">
+              <label class="mdl-textfield__label" for="add-prixPlat">Protéines (g/100g)</label>
+              <span class="mdl-textfield__error">L'entrée n'est pas un chiffre</span>
+            </div>
 
             <!-- Choix unique du type du plat -->
             <h5>Type du plat</h5>
