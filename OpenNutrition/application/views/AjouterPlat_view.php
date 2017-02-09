@@ -22,46 +22,83 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   .h1-text{
     font-size: 30px;
   }
+  .radio-type-plat{
+    margin-left: 5px;
+    margin-right: 5px;
+  }
 </style>
 <main class="mdl-layout__content">
   <section class="mdl-layout__tab-panel is-active" id="fixed-tab-ajout">
-    <div class="page-content"><!-- Your content goes here -->
+    <div class="page-content">
+      <!-- Contenu tab Ajouter -->
 
 <div class="outer-div">
 <div class="formulaire">
 <h1 class="h1-text">Ajouter un plat</h1>
 
-<!-- Input avec label -->
-
 <form action="{$base_url}controleur/FormulaireAjout">
+
+  <!-- Input texte avec label -->
   <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
     <input class="mdl-textfield__input" type="text" id="nomPlat">
     <label class="mdl-textfield__label" for="nomPlat">Nom</label>
   </div>
   <br/>
+
+  <!-- Input nombre avec label et texte d'erreur -->
   <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-    <input class="mdl-textfield__input" type="text" id="prixPlat">
+    <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="prixPlat">
     <label class="mdl-textfield__label" for="prixPlat">Prix</label>
+    <span class="mdl-textfield__error">L'entrée n'est pas un chiffre</span>
   </div>
- <br/>
+  <br/>
   <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-    <input class="mdl-textfield__input" type="text" id="typePlat">
-    <label class="mdl-textfield__label" for="typePlat">Type de plat</label>
-  </div>
- <br/>
-  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-    <input class="mdl-textfield__input" type="text" id="note5C">
-    <label class="mdl-textfield__label" for="note5C">Note 5C</label>
-  </div>
- <br/>
-   <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-    <input class="mdl-textfield__input" type="text" id="noteCO2">
+    <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="noteCO2">
     <label class="mdl-textfield__label" for="noteCO2">Note CO2</label>
+    <span class="mdl-textfield__error">L'entrée n'est pas un chiffre</span>
   </div>
  <br/>
+
+ <!-- Choix unique de la note 5C -->
+ <h5>Note 5C</h5>
+  <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect radio-type-plat" for="option-A">
+    <input type="radio" id="option-A" class="mdl-radio__button" name="options-note" value="A">
+    <span class="mdl-radio__label">A</span>
+  </label>
+  <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect radio-type-plat" for="option-B">
+    <input type="radio" id="option-B" class="mdl-radio__button" name="options-note" value="B">
+    <span class="mdl-radio__label">B</span>
+  </label>
+  <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect radio-type-plat" for="option-C">
+    <input type="radio" id="option-C" class="mdl-radio__button" name="options-note" value="C">
+    <span class="mdl-radio__label">C</span>
+  </label>
+    <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect radio-type-plat" for="option-D">
+    <input type="radio" id="option-D" class="mdl-radio__button" name="options-note" value="D">
+    <span class="mdl-radio__label">D</span>
+  </label>
+  <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect radio-type-plat" for="option-E">
+    <input type="radio" id="option-E" class="mdl-radio__button" name="options-note" value="E">
+    <span class="mdl-radio__label">E</span>
+  </label>
+
+  <!-- Choix unique du type du plat -->
+ <h5>Type du plat</h5>
+  <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect radio-type-plat" for="option-1">
+    <input type="radio" id="option-1" class="mdl-radio__button" name="options-type" value="plat" checked>
+    <span class="mdl-radio__label">Plat</span>
+  </label>
+  <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect radio-type-plat" for="option-2">
+    <input type="radio" id="option-2" class="mdl-radio__button" name="options-type" value="entree">
+    <span class="mdl-radio__label">Entrée</span>
+  </label>
+  <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect radio-type-plat" for="option-3">
+    <input type="radio" id="option-3" class="mdl-radio__button" name="options-type" value="dessert">
+    <span class="mdl-radio__label">Dessert</span>
+  </label>
+<br/>
 
  <!-- Liste des choix de composition -->
-
 <style>
 .demo-list-control {
   width: 300px;
@@ -72,7 +109,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 }
 </style>
 
- <h5>Composition</h5>
+<h5>Composition</h5>
 <ul class="demo-list-control mdl-list">
   <li class="mdl-list__item">
     <span class="mdl-list__item-primary-content">
@@ -122,7 +159,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </div>
     </section>
     <section class="mdl-layout__tab-panel" id="fixed-tab-suppr">
-      <div class="page-content"><!-- Your content goes here --></div>
+      <div class="page-content">
+        <!-- Contenu tab supprimer -->
+      </div>
     </section>
 </main>
 
