@@ -1,42 +1,243 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-//var_dump($PlatCrous);
 ?>
 
-<h1 class="mdl-card__title-text">Ajouter un plat</h1>
+<style>
 
-<!-- Textfield with Floating Label -->
+  .outer-div {
+    padding: 2em;
+    text-align: center;
+  }
 
-<form action="#">
-  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-    <input class="mdl-textfield__input" type="text" id="sample3">
-    <label class="mdl-textfield__label" for="sample3">Nom</label>
-  </div>
-</form>
+  .formulaire{
+    margin: auto;
+  }
 
-<!-- Textfield with Floating Label -->
+  .btn-submit{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .h1-text{
+    font-size: 30px;
+  }
+  .radio-type-plat{
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+</style>
+<main class="mdl-layout__content">
+  <section class="mdl-layout__tab-panel is-active" id="fixed-tab-ajout">
+    <div class="page-content">
+      <!-- Contenu tab Ajouter -->
 
-<form action="#">
-  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-    <input class="mdl-textfield__input" type="text" id="sample3">
-    <label class="mdl-textfield__label" for="sample3">Prix</label>
-  </div>
-</form>
+      <div class="outer-div">
+        <div class="formulaire">
+          <h1 class="h1-text">Ajouter un plat</h1>
 
-<!-- Textfield with Floating Label -->
+          <form action="../index.php/Formulaire">
 
-<form action="#">
-  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-    <input class="mdl-textfield__input" type="text" id="sample3">
-    <label class="mdl-textfield__label" for="sample3">Type de plat</label>
-  </div>
-</form>
+            <!-- Input texte avec label -->
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="text" id="i-nomPlat" name="i-nomPlat">
+              <label class="mdl-textfield__label" for="i-nomPlat">Nom</label>
+            </div>
+            <br/>
 
-<!-- Textfield with Floating Label -->
+            <!-- Input nombre avec label et texte d'erreur -->
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="add-prixPlat" name="i-prixPlat">
+              <label class="mdl-textfield__label" for="i-prixPlat">Prix</label>
+              <span class="mdl-textfield__error">L'entrée n'est pas un chiffre</span>
+            </div>
+            <br/>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="add-noteCO2" name="i-noteCO2">
+              <label class="mdl-textfield__label" for="i-noteCO2">Emission CO2</label>
+              <span class="mdl-textfield__error">L'entrée n'est pas un chiffre</span>
+            </div>
+            <br/>
 
-<form action="#">
-  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-    <input class="mdl-textfield__input" type="text" id="sample3">
-    <label class="mdl-textfield__label" for="sample3">Note5C</label>
-  </div>
-</form>
+            <h5>Note 5C</h5>
+            <!-- Choix unique de la note 5C -->
+            <!--
+            <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect radio-type-plat" for="add-option-A">
+              <input type="radio" id="add-option-A" class="mdl-radio__button" name="options-note" value="A">
+              <span class="mdl-radio__label">A</span>
+            </label>
+            <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect radio-type-plat" for="add-option-B">
+              <input type="radio" id="add-option-B" class="mdl-radio__button" name="options-note" value="B">
+              <span class="mdl-radio__label">B</span>
+            </label>
+            <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect radio-type-plat" for="add-option-C">
+              <input type="radio" id="add-option-C" class="mdl-radio__button" name="options-note" value="C">
+              <span class="mdl-radio__label">C</span>
+            </label>
+              <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect radio-type-plat" for="add-option-D">
+              <input type="radio" id="add-option-D" class="mdl-radio__button" name="options-note" value="D">
+              <span class="mdl-radio__label">D</span>
+            </label>
+            <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect radio-type-plat" for="add-option-E">
+              <input type="radio" id="add-option-E" class="mdl-radio__button" name="options-note" value="E">
+              <span class="mdl-radio__label">E</span>
+            </label>
+            -->
+            <!-- Champ à remplir pour la note 5C -->
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="i-de" name="i-de">
+              <label class="mdl-textfield__label" for="i-de">Densité énergétique (KJ/100g)</label>
+              <span class="mdl-textfield__error">L'entrée n'est pas un chiffre</span>
+            </div>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="add-gs" name="i-gs">
+              <label class="mdl-textfield__label" for="i-gs">Graisses saturées (g/100g)</label>
+              <span class="mdl-textfield__error">L'entrée n'est pas un chiffre</span>
+            </div>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="i-ss" name="i-ss">
+              <label class="mdl-textfield__label" for="i-ss">Sucres simples (g/100g)</label>
+              <span class="mdl-textfield__error">L'entrée n'est pas un chiffre</span>
+            </div>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="i-s" name="i-s">
+              <label class="mdl-textfield__label" for="i-s">Sodium (mg/100g)</label>
+              <span class="mdl-textfield__error">L'entrée n'est pas un chiffre</span>
+            </div>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="i-fln" name="i-fln">
+              <label class="mdl-textfield__label" for="i-fln">Fruits, Légumes et noix (g/100g)</label>
+              <span class="mdl-textfield__error">L'entrée n'est pas un chiffre</span>
+            </div>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="i-f" name="i-f">
+              <label class="mdl-textfield__label" for="i-f">Fibres (g/100g)</label>
+              <span class="mdl-textfield__error">L'entrée n'est pas un chiffre</span>
+            </div>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="i-p" name="i-p">
+              <label class="mdl-textfield__label" for="i-p">Protéines (g/100g)</label>
+              <span class="mdl-textfield__error">L'entrée n'est pas un chiffre</span>
+            </div>
+
+            <!-- Choix unique du type du plat -->
+            <h5>Type du plat</h5>
+            <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect radio-type-plat" for="i-type-plat">
+              <input type="radio" id="i-type-plat" class="mdl-radio__button" name="options-type" value="plat" checked>
+              <span class="mdl-radio__label">Plat</span>
+            </label>
+            <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect radio-type-plat" for="i-type-entree">
+              <input type="radio" id="i-type-entree" class="mdl-radio__button" name="options-type" value="entree">
+              <span class="mdl-radio__label">Entrée</span>
+            </label>
+            <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect radio-type-plat" for="i-type-dessert">
+              <input type="radio" id="i-type-dessert" class="mdl-radio__button" name="options-type" value="dessert">
+              <span class="mdl-radio__label">Dessert</span>
+            </label>
+            <br/>
+
+            <!-- Liste des choix de composition -->
+            <style>
+            .demo-list-control {
+              width: 300px;
+            }
+
+            .demo-list-radio {
+              display: inline;
+            }
+            </style>
+
+            <h5>Composition</h5>
+            <ul class="demo-list-control mdl-list">
+              <li class="mdl-list__item">
+                <span class="mdl-list__item-primary-content">
+                  Viande, poisson et oeuf
+                </span>
+                <span class="mdl-list__item-secondary-action">
+                  <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="i-viandes">
+                    <input type="checkbox" id="i-viandes" class="mdl-checkbox__input" name="i-viande"/>
+                  </label>
+                </span>
+              </li>
+              <li class="mdl-list__item">
+                <span class="mdl-list__item-primary-content">
+                  Féculent
+                </span>
+                <span class="mdl-list__item-secondary-action">
+                  <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="i-feculent">
+                    <input type="checkbox" id="i-feculent" class="mdl-checkbox__input" name="i-feculent"/>
+                  </label>
+                </span>
+              </li>
+              <li class="mdl-list__item">
+                <span class="mdl-list__item-primary-content">
+                  Légume ou Fruit
+                </span>
+                <span class="mdl-list__item-secondary-action">
+                  <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="i-fruitlegume">
+                    <input type="checkbox" id="i-fruitlegume" class="mdl-checkbox__input" name="i-fruitlegume"/>
+                  </label>
+                </span>
+              </li>
+              <li class="mdl-list__item">
+                <span class="mdl-list__item-primary-content">
+                  Produit laitier
+                </span>
+                <span class="mdl-list__item-secondary-action">
+                  <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="i-laitier">
+                    <input type="checkbox" id="i-laitier" class="mdl-checkbox__input" name="i-laitier"/>
+                  </label>
+                </span>
+              </li>
+            </ul>
+
+            <input type="submit" name="submitAjout" id="submitAjout" value="Ajouter" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent btn-submit">
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="mdl-layout__tab-panel" id="fixed-tab-suppr">
+    <div class="page-content">
+      <!-- Contenu tab supprimer -->
+      <div class="outer-div">
+        <div class="formulaire">
+          <form action="{$base_url}controleur/FormulaireAjout">
+          <h1 class="h1-text">Supprimer un plat</h1>
+
+            <!-- Liste des plats avec radio bouton-->
+            <ul class="demo-list-control mdl-list">
+
+                <?php
+                $idGenerator = 0;
+                foreach ($PlatCrous as $plat) {
+                    $nomPlat = str_replace(' ', '', $plat->nomPlat);
+                    ?>
+
+                    <li class="mdl-list__item" id="<?php echo $nomPlat; ?>">
+                        <span class="mdl-list__item-primary-content">
+                            <?php echo $plat->nomPlat; ?>
+                        </span>
+
+                        <span class="mdl-list__item-secondary-action">
+                            <label class="demo-list-radio mdl-radio mdl-js-radio mdl-js-ripple-effect" for="list-option-suppr-<?php echo $idGenerator; ?>">
+                                <input type="radio" id="list-option-suppr-<?php echo $idGenerator; ?>" class="mdl-radio__button" name="suppression" value="<?php echo $nomPlat; ?>" />
+                            </label>
+                        </span>
+                    </li>
+                    <?php
+                    $idGenerator ++;
+                }
+                ?>
+
+            </ul>
+
+            <input type="submit" name="submitSuppr" id="submitSuppr" value="Supprimer" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent btn-submit">
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+
+
