@@ -14,8 +14,23 @@ class Ajouter_model extends CI_Model  {
         parent::__construct();
     }
     
-    function db_insert($data){
+    /**
+    *@param : $data un tableau comprenant :
+    * - le nom du plat
+    * - le prix du plat
+    * - le type du plat
+    * - la note 5C
+    * - la note CO2
+    */
+    function db_insertPlat($data){
         $this->db->insert('platscrous', $data);
+    }
+
+    /**
+    *@param : $data un tableau comprenant le nom du plat à ajouter et le nom de la composition associée
+    */
+    function db_insertCompoPlat($data){
+        $this->db->insert('compositionplat', $data);
     }
     
 }

@@ -37,18 +37,16 @@ class FormulaireAjout extends CI_Controller {
 
         $this->form_validation->set_error_delimiters('<div class="error">', '</div>');
 
-        //Validating Name Field
-        $this->form_validation->set_rules('dnom', 'Nom', 'required|min_length[2]|max_length[30]');
 
-        //Validating Email Field
-        $this->form_validation->set_rules('dprix', 'Prix', 'required');
+        $this->form_validation->set_rules('add-nomPlat', 'Nom', 'required|min_length[2]|max_length[30]');
 
-        $this->form_validation->set_rules('dtype', 'Type plat', 'required');
-        //Validating Mobile no. Field
-        $this->form_validation->set_rules('dnote5C', 'Note 5C', 'required');
+        $this->form_validation->set_rules('add-prixPlat', 'Prix', 'required');
 
-        //Validating Address Field
-        $this->form_validation->set_rules('dnoteCO2', 'Note CO2', 'required');
+        $this->form_validation->set_rules('options-type', 'Type plat', 'required');
+
+        $this->form_validation->set_rules('options-note', 'Note 5C', 'required');
+
+        $this->form_validation->set_rules('add-noteCO2', 'Note CO2', 'required');
 
 
 
@@ -61,10 +59,11 @@ class FormulaireAjout extends CI_Controller {
         } else {
             //Setting values for table columns
             $data = array(
-                'nomPlat' => $this->input->post('dnom'),
-                'prixPlat' => $this->input->post('dprix'),
-                'note5C' => $this->input->post('dnote5C'),
-                'noteCO2' => $this->input->post('dnoteCO2')
+                'nomPlat' => $this->input->post('add-nomPlat'),
+                'prixPlat' => $this->input->post('add-prixPlat'),
+                'typePlat' => $this->input->post('options-type'),
+                'note5C' => $this->input->post('options-note'),
+                'noteCO2' => $this->input->post('add-noteCO2')
             );
             //Transfering data to Model
             $this->Ajouter_model->db_insert($data);

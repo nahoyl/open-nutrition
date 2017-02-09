@@ -40,60 +40,60 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
             <!-- Input texte avec label -->
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-              <input class="mdl-textfield__input" type="text" id="nomPlat">
-              <label class="mdl-textfield__label" for="nomPlat">Nom</label>
+              <input class="mdl-textfield__input" type="text" id="add-nomPlat">
+              <label class="mdl-textfield__label" for="add-nomPlat">Nom</label>
             </div>
             <br/>
 
             <!-- Input nombre avec label et texte d'erreur -->
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-              <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="prixPlat">
-              <label class="mdl-textfield__label" for="prixPlat">Prix</label>
+              <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="add-prixPlat">
+              <label class="mdl-textfield__label" for="add-prixPlat">Prix</label>
               <span class="mdl-textfield__error">L'entrée n'est pas un chiffre</span>
             </div>
             <br/>
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-              <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="noteCO2">
-              <label class="mdl-textfield__label" for="noteCO2">Emission CO2</label>
+              <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="add-noteCO2">
+              <label class="mdl-textfield__label" for="add-noteCO2">Emission CO2</label>
               <span class="mdl-textfield__error">L'entrée n'est pas un chiffre</span>
             </div>
             <br/>
 
            <!-- Choix unique de la note 5C -->
             <h5>Note 5C</h5>
-            <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect radio-type-plat" for="option-A">
-              <input type="radio" id="option-A" class="mdl-radio__button" name="options-note" value="A">
+            <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect radio-type-plat" for="add-option-A">
+              <input type="radio" id="add-option-A" class="mdl-radio__button" name="options-note" value="A">
               <span class="mdl-radio__label">A</span>
             </label>
-            <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect radio-type-plat" for="option-B">
-              <input type="radio" id="option-B" class="mdl-radio__button" name="options-note" value="B">
+            <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect radio-type-plat" for="add-option-B">
+              <input type="radio" id="add-option-B" class="mdl-radio__button" name="options-note" value="B">
               <span class="mdl-radio__label">B</span>
             </label>
-            <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect radio-type-plat" for="option-C">
-              <input type="radio" id="option-C" class="mdl-radio__button" name="options-note" value="C">
+            <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect radio-type-plat" for="add-option-C">
+              <input type="radio" id="add-option-C" class="mdl-radio__button" name="options-note" value="C">
               <span class="mdl-radio__label">C</span>
             </label>
-              <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect radio-type-plat" for="option-D">
-              <input type="radio" id="option-D" class="mdl-radio__button" name="options-note" value="D">
+              <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect radio-type-plat" for="add-option-D">
+              <input type="radio" id="add-option-D" class="mdl-radio__button" name="options-note" value="D">
               <span class="mdl-radio__label">D</span>
             </label>
-            <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect radio-type-plat" for="option-E">
-              <input type="radio" id="option-E" class="mdl-radio__button" name="options-note" value="E">
+            <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect radio-type-plat" for="add-option-E">
+              <input type="radio" id="add-option-E" class="mdl-radio__button" name="options-note" value="E">
               <span class="mdl-radio__label">E</span>
             </label>
 
             <!-- Choix unique du type du plat -->
             <h5>Type du plat</h5>
-            <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect radio-type-plat" for="option-1">
-              <input type="radio" id="option-1" class="mdl-radio__button" name="options-type" value="plat" checked>
+            <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect radio-type-plat" for="add-type-plat">
+              <input type="radio" id="add-type-plat" class="mdl-radio__button" name="options-type" value="plat" checked>
               <span class="mdl-radio__label">Plat</span>
             </label>
-            <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect radio-type-plat" for="option-2">
-              <input type="radio" id="option-2" class="mdl-radio__button" name="options-type" value="entree">
+            <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect radio-type-plat" for="add-type-entree">
+              <input type="radio" id="add-type-entree" class="mdl-radio__button" name="options-type" value="entree">
               <span class="mdl-radio__label">Entrée</span>
             </label>
-            <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect radio-type-plat" for="option-3">
-              <input type="radio" id="option-3" class="mdl-radio__button" name="options-type" value="dessert">
+            <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect radio-type-plat" for="add-type-dessert">
+              <input type="radio" id="add-type-dessert" class="mdl-radio__button" name="options-type" value="dessert">
               <span class="mdl-radio__label">Dessert</span>
             </label>
             <br/>
