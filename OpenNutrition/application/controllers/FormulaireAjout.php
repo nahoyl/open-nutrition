@@ -22,10 +22,16 @@ class FormulaireAjout extends CI_Controller {
     function __construct() {
         parent::__construct();
         $this->load->model('Ajouter_model');
+
     }
 
     function index() {
         //Including validation library
+        $this->load->model('PlatCrous_model', 'PlatCrous', TRUE);
+        $data["EntreeCrous"] = $this->PlatCrous->getPlatCrousEntree();
+        $data["PlatCrous"] = $this->PlatCrous->getPlatCrousPlat();
+        $data["DessertCrous"] = $this->PlatCrous->getPlatCrousDessert();
+
         $this->load->library('form_validation');
 
         $this->form_validation->set_error_delimiters('<div class="error">', '</div>');
