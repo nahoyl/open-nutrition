@@ -20,7 +20,7 @@ class PlatCrous_model extends CI_Model  {
     private $ingredients = 'ingredients';
     
     
-        public function getPlatCrousEntree() {
+    public function getPlatCrousEntree() {
             
         return $this->db->select('*')
                         ->from($this->tablePlatCrous)
@@ -30,8 +30,18 @@ class PlatCrous_model extends CI_Model  {
                         ->get()
                         ->result();
     }
+
+    public function getPlatCrous() {
+            
+        return $this->db->select('*')
+                        ->from($this->tablePlatCrous)
+                        ->join($this->tablePlat, "platscrous.nomPlat = plats.nomPlat")
+                        ->order_by('platscrous.nomPlat')
+                        ->get()
+                        ->result();
+    }
     
-     public function getPlatCrousPlat() {
+    public function getPlatCrousPlat() {
             
         return $this->db->select('*')
                         ->from($this->tablePlatCrous)
@@ -42,7 +52,7 @@ class PlatCrous_model extends CI_Model  {
                         ->result();
     }
     
-     public function getPlatCrousDessert() {
+    public function getPlatCrousDessert() {
             
         return $this->db->select('*')
                         ->from($this->tablePlatCrous)
@@ -52,7 +62,6 @@ class PlatCrous_model extends CI_Model  {
                         ->get()
                         ->result();
     }
-    
     
     public function getPlatIngrediant($plat){
         return $this->db->select('*')
@@ -64,6 +73,7 @@ class PlatCrous_model extends CI_Model  {
                         ->result();
         
     }
+
     public function getPlatNote($plat){
         $notePlat = $this->db->select('note')
                         ->from($this->tablePlat)
