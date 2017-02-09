@@ -40,7 +40,7 @@ class Welcome extends CI_Controller {
         public function getAllergeneIngredient($plat)
 	{
             //$plat= $this->input->post('plat');
-            $data["ingredient"] = $this->PlatCrous->getPlatIngrediant($plat);
+            $data["allergene"] = $this->PlatCrous->getPlatAllergene($plat);
             $data["nomPlat"] = $plat ;
             $data["notePlat"] = $this->PlatCrous->getPlatNote($plat) ;
             $this->load->view('Description_view',$data);
