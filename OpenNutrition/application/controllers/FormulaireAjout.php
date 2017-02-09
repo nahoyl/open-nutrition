@@ -55,7 +55,7 @@ class FormulaireAjout extends CI_Controller {
 				'noteCO2' => $this->input->post('dnoteCO2')
 			);
 			//Transfering data to Model
-			$this->insert_model->form_insert($data);
+			$this->Ajouter_model->db_insert($data);
 			$data['message'] = 'Data Inserted Successfully';
 
 			//Loading View
