@@ -153,7 +153,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               </li>
             </ul>
 
-            <input type="submit" name="submit" id="submit" value="Ajouter" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent btn-submit">
+            <input type="submit" name="submitAjout" id="submitAjout" value="Ajouter" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent btn-submit">
           </form>
         </div>
       </div>
@@ -164,38 +164,38 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       <!-- Contenu tab supprimer -->
       <div class="outer-div">
         <div class="formulaire">
+          <form action="{$base_url}controleur/FormulaireAjout">
           <h1 class="h1-text">Supprimer un plat</h1>
 
-          <!-- Deletable Chip -->
-          <ul class="demo-list-control mdl-list">
-            
-              <?php
-              $nbDessert = 7;
-              foreach ($DessertCrous as $plat) {
-                  $nomPlat = str_replace(' ', '', $plat->nomPlat);
-                  ?>
+            <!-- Liste des plats -->
+            <ul class="demo-list-control mdl-list">
 
+                <?php
+                $idGenerator = 0;
+                foreach ($PlatCrous as $plat) {
+                    $nomPlat = str_replace(' ', '', $plat->nomPlat);
+                    ?>
 
-                  <li class="mdl-list__item mdl-list__item--two-line" id="<?php echo $nomPlat; ?>">
-                      <span class="mdl-list__item-primary-content">
-                          <p class ="note note<?php echo $plat->note5C; ?>"><?php echo $plat->note5C; ?></p>
-                          <span class='nomplat'><?php echo $plat->nomPlat; ?> </span>
-                          <span class="mdl-list__item-sub-title"><?php echo $plat->prixPlat; ?>€</span>
-                      </span>
+                    <li class="mdl-list__item" id="<?php echo $nomPlat; ?>">
+                        <span class="mdl-list__item-primary-content">
+                            <?php echo $plat->nomPlat; ?>
+                        </span>
 
-                      <span class="mdl-list__item-secondary-action">
-                          <label class="demo-list-radio mdl-radio mdl-js-radio mdl-js-ripple-effect" for="list-option3-<?php echo $nbDessert; ?>">
-                              <input type="radio" id="list-option3-<?php echo $nbDessert; ?>" class="mdl-radio__button" name="<?php echo $plat->typePlat; ?>" value="<?php echo $nomPlat; ?>" />
-                          </label>
-                      </span>
-                  </li>
-                  <?php
-                  $nbDessert ++;
-              }
-              ?>
+                        <span class="mdl-list__item-secondary-action">
+                            <label class="demo-list-radio mdl-radio mdl-js-radio mdl-js-ripple-effect" for="list-option-suppr-<?php echo $idGenerator; ?>">
+                                <input type="radio" id="list-option-suppr-<?php echo $idGenerator; ?>" class="mdl-radio__button" name="suppression" value="<?php echo $nomPlat; ?>" />
+                            </label>
+                        </span>
+                    </li>
+                    <?php
+                    $idGenerator ++;
+                }
+                ?>
 
-          </ul>
+            </ul>
 
+            <input type="submit" name="submitSuppr" id="submitSuppr" value="Supprimer" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent btn-submit">
+          </form>
         </div>
       </div>
     </div>

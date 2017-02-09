@@ -30,6 +30,16 @@ class PlatCrous_model extends CI_Model  {
                         ->get()
                         ->result();
     }
+
+    public function getPlatCrous() {
+            
+        return $this->db->select('*')
+                        ->from($this->tablePlatCrous)
+                        ->join($this->tablePlat, "platscrous.nomPlat = plats.nomPlat")
+                        ->order_by('platscrous.nomPlat')
+                        ->get()
+                        ->result();
+    }
     
      public function getPlatCrousPlat() {
             

@@ -22,15 +22,16 @@ class FormulaireAjout extends CI_Controller {
     function __construct() {
         parent::__construct();
         $this->load->model('Ajouter_model');
+        $this->load->model('PlatCrous_model', 'PlatCrous', TRUE);
 
     }
 
     function index() {
         //Including validation library
-        $this->load->model('PlatCrous_model', 'PlatCrous', TRUE);
-        $data["EntreeCrous"] = $this->PlatCrous->getPlatCrousEntree();
-        $data["PlatCrous"] = $this->PlatCrous->getPlatCrousPlat();
-        $data["DessertCrous"] = $this->PlatCrous->getPlatCrousDessert();
+        
+
+        $data["PlatCrous"] = $this->PlatCrous->getPlatCrous();
+
 
         $this->load->library('form_validation');
 
@@ -55,7 +56,7 @@ class FormulaireAjout extends CI_Controller {
             $this->load->view('Header_view');
             $this->load->view('Nav_view_form');
             $this->load->view('NavGauche_view');
-            $this->load->view('AjouterPlat_view');
+            $this->load->view('AjouterPlat_view', $data);
             $this->load->view('Footer_view');
         } else {
             //Setting values for table columns
