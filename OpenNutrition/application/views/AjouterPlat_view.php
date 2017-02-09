@@ -167,7 +167,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <form action="{$base_url}controleur/FormulaireAjout">
           <h1 class="h1-text">Supprimer un plat</h1>
 
-            <!-- Liste des plats -->
+            <!-- Liste des plats avec radio bouton-->
             <ul class="demo-list-control mdl-list">
 
                 <?php
