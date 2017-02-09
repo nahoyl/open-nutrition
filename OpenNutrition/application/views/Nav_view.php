@@ -18,11 +18,3 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			  <a href="#fixed-tab-3" class="mdl-layout__tab">Desserts</a>
 			</div>
 		  </header>
-		  <div class="mdl-layout__drawer">
-			<span class="mdl-layout-title">Accueil</span>
-			    <nav class="mdl-navigation">
-			      <a class="mdl-navigation__link" href="">Accueil</a>
-			      <a class="mdl-navigation__link" href="">Ajouter un plat</a>
-
-			    </nav>
-		  </div>
