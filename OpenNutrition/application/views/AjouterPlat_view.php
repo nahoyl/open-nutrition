@@ -35,7 +35,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="formulaire">
           <h1 class="h1-text">Ajouter un plat</h1>
 
-          <form action="{$base_url}controleur/FormulaireAjout">
+          <form action="../index.php/Formulaire">
 
             <!-- Input texte avec label -->
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
