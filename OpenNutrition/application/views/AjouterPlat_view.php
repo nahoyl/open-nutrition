@@ -116,8 +116,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                   Viande, poisson et oeuf
                 </span>
                 <span class="mdl-list__item-secondary-action">
-                  <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="list-checkbox-1">
-                    <input type="checkbox" id="list-checkbox-1" class="mdl-checkbox__input"/>
+                  <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="list-checkbox-viandes">
+                    <input type="checkbox" id="list-checkbox-viandes" class="mdl-checkbox__input"/>
                   </label>
                 </span>
               </li>
@@ -126,8 +126,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                   Féculent
                 </span>
                 <span class="mdl-list__item-secondary-action">
-                  <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="list-checkbox-2">
-                    <input type="checkbox" id="list-checkbox-2" class="mdl-checkbox__input"/>
+                  <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="list-checkbox-feculent">
+                    <input type="checkbox" id="list-checkbox-feculent" class="mdl-checkbox__input"/>
                   </label>
                 </span>
               </li>
@@ -136,8 +136,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                   Légume ou Fruit
                 </span>
                 <span class="mdl-list__item-secondary-action">
-                  <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="list-checkbox-3">
-                    <input type="checkbox" id="list-checkbox-3" class="mdl-checkbox__input"/>
+                  <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="list-checkbox-fruitlegume">
+                    <input type="checkbox" id="list-checkbox-fruitlegume" class="mdl-checkbox__input"/>
                   </label>
                 </span>
               </li>
@@ -146,8 +146,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                   Produit laitier
                 </span>
                 <span class="mdl-list__item-secondary-action">
-                  <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="list-checkbox-4">
-                    <input type="checkbox" id="list-checkbox-4" class="mdl-checkbox__input"/>
+                  <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="list-checkbox-laitier">
+                    <input type="checkbox" id="list-checkbox-laitier" class="mdl-checkbox__input"/>
                   </label>
                 </span>
               </li>
