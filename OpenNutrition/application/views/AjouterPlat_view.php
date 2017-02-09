@@ -1,6 +1,5 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-//var_dump($PlatCrous);
 ?>
 
 <style>
@@ -85,38 +84,38 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             -->
             <!-- Champ à remplir pour la note 5C -->
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-              <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="add-prixPlat">
-              <label class="mdl-textfield__label" for="add-prixPlat">Densité énergétique (KJ/100g)</label>
+              <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="add-de">
+              <label class="mdl-textfield__label" for="add-de">Densité énergétique (KJ/100g)</label>
               <span class="mdl-textfield__error">L'entrée n'est pas un chiffre</span>
             </div>
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-              <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="add-prixPlat">
-              <label class="mdl-textfield__label" for="add-prixPlat">Graisses saturées (g/100g)</label>
+              <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="add-gs">
+              <label class="mdl-textfield__label" for="add-gs">Graisses saturées (g/100g)</label>
               <span class="mdl-textfield__error">L'entrée n'est pas un chiffre</span>
             </div>
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-              <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="add-prixPlat">
-              <label class="mdl-textfield__label" for="add-prixPlat">Sucres simples (g/100g)</label>
+              <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="add-ss">
+              <label class="mdl-textfield__label" for="add-ss">Sucres simples (g/100g)</label>
               <span class="mdl-textfield__error">L'entrée n'est pas un chiffre</span>
             </div>
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-              <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="add-prixPlat">
-              <label class="mdl-textfield__label" for="add-prixPlat">Sodium (mg/100g)</label>
+              <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="add-s">
+              <label class="mdl-textfield__label" for="add-s">Sodium (mg/100g)</label>
               <span class="mdl-textfield__error">L'entrée n'est pas un chiffre</span>
             </div>
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-              <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="add-prixPlat">
-              <label class="mdl-textfield__label" for="add-prixPlat">Fruits, Légumes et noix (g/100g)</label>
+              <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="add-ffn">
+              <label class="mdl-textfield__label" for="add-ffn">Fruits, Légumes et noix (g/100g)</label>
               <span class="mdl-textfield__error">L'entrée n'est pas un chiffre</span>
             </div>
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-              <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="add-prixPlat">
-              <label class="mdl-textfield__label" for="add-prixPlat">Fibres (g/100g)</label>
+              <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="add-f">
+              <label class="mdl-textfield__label" for="add-f">Fibres (g/100g)</label>
               <span class="mdl-textfield__error">L'entrée n'est pas un chiffre</span>
             </div>
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-              <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="add-prixPlat">
-              <label class="mdl-textfield__label" for="add-prixPlat">Protéines (g/100g)</label>
+              <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="add-p">
+              <label class="mdl-textfield__label" for="add-p">Protéines (g/100g)</label>
               <span class="mdl-textfield__error">L'entrée n'est pas un chiffre</span>
             </div>
 
