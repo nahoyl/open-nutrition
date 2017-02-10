@@ -34,6 +34,9 @@ class Ajouter_model extends CI_Model  {
         $this->db->insert('compositionplat', $data);
     }
 
+    /**
+    *@param : $data le nom du plat à supprimer
+    */
     function db_deletePlat($data){
 
         $this -> db -> where('nomPlat', $data);

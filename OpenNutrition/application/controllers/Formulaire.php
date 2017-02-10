@@ -28,17 +28,13 @@ class Formulaire extends CI_Controller {
     }
 
     function index() {
-        //Including validation library
+        
         $data["PlatCrous"] = $this->PlatCrous->getPlatCrous();
-        $this->load->view('Header_view');
-        $this->load->view('Nav_view_form');
-        $this->load->view('NavGauche_view');
-        $this->load->view('AjouterPlat_view', $data);
-        $this->load->view('Footer_view');
+        $this->lancerVueFormulaire($data);
 
     }
 
-    function submitAjout(){
+    public function submitAjout(){
         
         $this->load->library('form_validation');
 
@@ -97,18 +93,19 @@ class Formulaire extends CI_Controller {
             $data['message'] = 'Data Inserted Successfully';
             //Loading View
             
-            $this->load->view('Header_view');
-            $this->load->view('Nav_view_form');
-            $this->load->view('NavGauche_view');
-            $this->load->view('AjouterPlat_view', $data);
-            $this->load->view('Footer_view');
+            $this->lancerVueFormulaire($data);
         }
     }
 
-    function submitSuppr(){
+    public function submitSuppr(){
         $this->Ajouter_model->db_deleteplat($this->input->post('suppression'));
 
         $data["PlatCrous"] = $this->PlatCrous->getPlatCrous();
+        $this->lancerVueFormulaire($data);
+
+    }
+
+    private function lancerVueFormulaire($data){
         $this->load->view('Header_view');
         $this->load->view('Nav_view_form');
         $this->load->view('NavGauche_view');

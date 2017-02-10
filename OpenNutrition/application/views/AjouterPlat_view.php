@@ -59,30 +59,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <br/>
 
             <h5>Note 5C</h5>
-            <!-- Choix unique de la note 5C -->
-            <!--
-            <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect radio-type-plat" for="add-option-A">
-              <input type="radio" id="add-option-A" class="mdl-radio__button" name="options-note" value="A">
-              <span class="mdl-radio__label">A</span>
-            </label>
-            <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect radio-type-plat" for="add-option-B">
-              <input type="radio" id="add-option-B" class="mdl-radio__button" name="options-note" value="B">
-              <span class="mdl-radio__label">B</span>
-            </label>
-            <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect radio-type-plat" for="add-option-C">
-              <input type="radio" id="add-option-C" class="mdl-radio__button" name="options-note" value="C">
-              <span class="mdl-radio__label">C</span>
-            </label>
-              <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect radio-type-plat" for="add-option-D">
-              <input type="radio" id="add-option-D" class="mdl-radio__button" name="options-note" value="D">
-              <span class="mdl-radio__label">D</span>
-            </label>
-            <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect radio-type-plat" for="add-option-E">
-              <input type="radio" id="add-option-E" class="mdl-radio__button" name="options-note" value="E">
-              <span class="mdl-radio__label">E</span>
-            </label>
-            -->
-            <!-- Champ à remplir pour la note 5C -->
+
+            <!-- Champs à remplir pour la note 5C -->
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
               <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="i-de" name="i-de">
               <label class="mdl-textfield__label" for="i-de">Densité énergétique (KJ/100g)</label>
