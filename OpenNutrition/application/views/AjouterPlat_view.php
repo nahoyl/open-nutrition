@@ -35,7 +35,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="formulaire">
           <h1 class="h1-text">Ajouter un plat</h1>
           
-          <form method="post" action="../index.php/Formulaire/submitAjout/">
+          <form method="post" action="<?php echo base_url('index.php/Formulaire/submitAjout');?>">
 
             <!-- Input texte avec label -->
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
@@ -180,7 +180,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       <!-- Contenu tab supprimer -->
       <div class="outer-div">
         <div class="formulaire">
-          <form method="post" action="../index.php/Formulaire/submitSuppr/">
+          <form method="post" action="<?php echo base_url('index.php/Formulaire/submitSuppr');?>">
           <h1 class="h1-text">Supprimer un plat</h1>
 
             <!-- Liste des plats avec radio bouton-->
