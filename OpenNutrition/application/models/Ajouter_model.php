@@ -23,7 +23,8 @@ class Ajouter_model extends CI_Model  {
     * - la note CO2
     */
     function db_insertPlat($data){
-        $this->db->insert('platscrous', $data);
+        $this->db->insert('plats', $data);
+        $this->db->insert('platscrous', array('nomPlat'=>$data['nomPlat']));
     }
 
     /**
@@ -31,6 +32,18 @@ class Ajouter_model extends CI_Model  {
     */
     function db_insertCompoPlat($data){
         $this->db->insert('compositionplat', $data);
+    }
+
+    function db_deletePlat($data){
+
+        $this -> db -> where('nomPlat', $data);
+        $this -> db -> delete('platscrous');
+
+        $this -> db -> where('nomPlat', $data);
+        $this -> db -> delete('compositionplat');
+
+        $this -> db -> where('nomPlat', $data);
+        $this -> db -> delete('plats');
     }
     
 }

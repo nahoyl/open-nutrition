@@ -100,7 +100,7 @@ class PlatCrous_model extends CI_Model  {
     }
     
     public function calculNote($densiteEnergetique, $graissesSaturees, $sucreSimples, $sodium, $fruitsLegumesNoix, $fibres, $proteines) {
-        $score = calculScroreNote($densiteEnergetique, $graissesSaturees, $sucreSimples, $sodium, $fruitsLegumesNoix, $fibres, $proteines);
+        $score = $this->calculScoreNote($densiteEnergetique, $graissesSaturees, $sucreSimples, $sodium, $fruitsLegumesNoix, $fibres, $proteines);
         if ($score < -1)
             return "A";
         if ($score < 4)
@@ -113,16 +113,16 @@ class PlatCrous_model extends CI_Model  {
             return "E";
     }
 
-    public function calculScroreNote($densiteEnergetique, $graissesSaturees, $sucreSimples, $sodium, $fruitsLegumesNoix, $fibres, $proteines) {
-        return calculPointsNegatifs($densiteEnergetique, $graissesSaturees, $sucreSimples, $sodium) - calculPointsPositifs($fruitsLegumesNoix, $fibres, $proteines);
+    public function calculScoreNote($densiteEnergetique, $graissesSaturees, $sucreSimples, $sodium, $fruitsLegumesNoix, $fibres, $proteines) {
+        return $this->calculPointsNegatifs($densiteEnergetique, $graissesSaturees, $sucreSimples, $sodium) - $this->calculPointsPositifs($fruitsLegumesNoix, $fibres, $proteines);
     }
 
     private function calculPointsNegatifs($densiteEnergetique, $graissesSaturees, $sucreSimples, $sodium) {
-        return calculPointsEnergie($densiteEnergetique) + calculPointsGraisse($graissesSaturees) + calculPointsSucre($sucreSimples) + calculPointsSel($sodium);
+        return $this->calculPointsEnergie($densiteEnergetique) + $this->calculPointsGraisse($graissesSaturees) + $this->calculPointsSucre($sucreSimples) + $this->calculPointsSel($sodium);
     }
 
     private function calculPointsPositifs($fruitsLegumesNoix, $fibres, $proteines) {
-        return calculPointsFruitsLegumes($fruitsLegumesNoix) + calculPointsFibres($fibres) + calculPointsProteines($proteines);
+        return $this->calculPointsFruitsLegumes($fruitsLegumesNoix) + $this->calculPointsFibres($fibres) + $this->calculPointsProteines($proteines);
     }
 
     private function calculPointsEnergie($densiteEnergetique) {

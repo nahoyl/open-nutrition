@@ -34,26 +34,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       <div class="outer-div">
         <div class="formulaire">
           <h1 class="h1-text">Ajouter un plat</h1>
-
-          <form action="../index.php/Formulaire">
+          
+          <form method="post" action="../index.php/Formulaire/submitAjout/">
 
             <!-- Input texte avec label -->
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-              <input class="mdl-textfield__input" type="text" id="add-nomPlat">
-              <label class="mdl-textfield__label" for="add-nomPlat">Nom</label>
+              <input class="mdl-textfield__input" type="text" id="i-nomPlat" name="i-nomPlat">
+              <label class="mdl-textfield__label" for="i-nomPlat">Nom</label>
             </div>
             <br/>
 
             <!-- Input nombre avec label et texte d'erreur -->
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-              <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="add-prixPlat">
-              <label class="mdl-textfield__label" for="add-prixPlat">Prix</label>
+              <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="add-prixPlat" name="i-prixPlat">
+              <label class="mdl-textfield__label" for="i-prixPlat">Prix</label>
               <span class="mdl-textfield__error">L'entrée n'est pas un chiffre</span>
             </div>
             <br/>
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-              <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="add-noteCO2">
-              <label class="mdl-textfield__label" for="add-noteCO2">Emission CO2</label>
+              <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="add-noteCO2" name="i-noteCO2">
+              <label class="mdl-textfield__label" for="i-noteCO2">Emission CO2</label>
               <span class="mdl-textfield__error">L'entrée n'est pas un chiffre</span>
             </div>
             <br/>
@@ -84,53 +84,53 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             -->
             <!-- Champ à remplir pour la note 5C -->
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-              <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="add-de">
-              <label class="mdl-textfield__label" for="add-de">Densité énergétique (KJ/100g)</label>
+              <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="i-de" name="i-de">
+              <label class="mdl-textfield__label" for="i-de">Densité énergétique (KJ/100g)</label>
               <span class="mdl-textfield__error">L'entrée n'est pas un chiffre</span>
             </div>
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-              <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="add-gs">
-              <label class="mdl-textfield__label" for="add-gs">Graisses saturées (g/100g)</label>
+              <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="add-gs" name="i-gs">
+              <label class="mdl-textfield__label" for="i-gs">Graisses saturées (g/100g)</label>
               <span class="mdl-textfield__error">L'entrée n'est pas un chiffre</span>
             </div>
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-              <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="add-ss">
-              <label class="mdl-textfield__label" for="add-ss">Sucres simples (g/100g)</label>
+              <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="i-ss" name="i-ss">
+              <label class="mdl-textfield__label" for="i-ss">Sucres simples (g/100g)</label>
               <span class="mdl-textfield__error">L'entrée n'est pas un chiffre</span>
             </div>
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-              <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="add-s">
-              <label class="mdl-textfield__label" for="add-s">Sodium (mg/100g)</label>
+              <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="i-s" name="i-s">
+              <label class="mdl-textfield__label" for="i-s">Sodium (mg/100g)</label>
               <span class="mdl-textfield__error">L'entrée n'est pas un chiffre</span>
             </div>
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-              <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="add-ffn">
-              <label class="mdl-textfield__label" for="add-ffn">Fruits, Légumes et noix (g/100g)</label>
+              <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="i-fln" name="i-fln">
+              <label class="mdl-textfield__label" for="i-fln">Fruits, Légumes et noix (g/100g)</label>
               <span class="mdl-textfield__error">L'entrée n'est pas un chiffre</span>
             </div>
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-              <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="add-f">
-              <label class="mdl-textfield__label" for="add-f">Fibres (g/100g)</label>
+              <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="i-f" name="i-f">
+              <label class="mdl-textfield__label" for="i-f">Fibres (g/100g)</label>
               <span class="mdl-textfield__error">L'entrée n'est pas un chiffre</span>
             </div>
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-              <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="add-p">
-              <label class="mdl-textfield__label" for="add-p">Protéines (g/100g)</label>
+              <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="i-p" name="i-p">
+              <label class="mdl-textfield__label" for="i-p">Protéines (g/100g)</label>
               <span class="mdl-textfield__error">L'entrée n'est pas un chiffre</span>
             </div>
 
             <!-- Choix unique du type du plat -->
             <h5>Type du plat</h5>
-            <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect radio-type-plat" for="add-type-plat">
-              <input type="radio" id="add-type-plat" class="mdl-radio__button" name="options-type" value="plat" checked>
+            <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect radio-type-plat" for="i-type-plat">
+              <input type="radio" id="i-type-plat" class="mdl-radio__button" name="options-type" value="Plat" checked>
               <span class="mdl-radio__label">Plat</span>
             </label>
-            <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect radio-type-plat" for="add-type-entree">
-              <input type="radio" id="add-type-entree" class="mdl-radio__button" name="options-type" value="entree">
+            <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect radio-type-plat" for="i-type-entree">
+              <input type="radio" id="i-type-entree" class="mdl-radio__button" name="options-type" value="Entree">
               <span class="mdl-radio__label">Entrée</span>
             </label>
-            <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect radio-type-plat" for="add-type-dessert">
-              <input type="radio" id="add-type-dessert" class="mdl-radio__button" name="options-type" value="dessert">
+            <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect radio-type-plat" for="i-type-dessert">
+              <input type="radio" id="i-type-dessert" class="mdl-radio__button" name="options-type" value="Dessert">
               <span class="mdl-radio__label">Dessert</span>
             </label>
             <br/>
@@ -153,8 +153,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                   Viande, poisson et oeuf
                 </span>
                 <span class="mdl-list__item-secondary-action">
-                  <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="list-checkbox-viandes">
-                    <input type="checkbox" id="list-checkbox-viandes" class="mdl-checkbox__input"/>
+                  <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="i-viandes">
+                    <input type="checkbox" id="i-viandes" class="mdl-checkbox__input" name="tab-composition[]" value="viandes"/>
                   </label>
                 </span>
               </li>
@@ -163,8 +163,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                   Féculent
                 </span>
                 <span class="mdl-list__item-secondary-action">
-                  <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="list-checkbox-feculent">
-                    <input type="checkbox" id="list-checkbox-feculent" class="mdl-checkbox__input"/>
+                  <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="i-feculent">
+                    <input type="checkbox" id="i-feculent" class="mdl-checkbox__input" name="tab-composition[]" value="feculent"/>
                   </label>
                 </span>
               </li>
@@ -173,8 +173,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                   Légume ou Fruit
                 </span>
                 <span class="mdl-list__item-secondary-action">
-                  <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="list-checkbox-fruitlegume">
-                    <input type="checkbox" id="list-checkbox-fruitlegume" class="mdl-checkbox__input"/>
+                  <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="i-fruitlegume">
+                    <input type="checkbox" id="i-fruitlegume" class="mdl-checkbox__input" name="tab-composition[]" value="fruitlegume"/>
                   </label>
                 </span>
               </li>
@@ -183,8 +183,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                   Produit laitier
                 </span>
                 <span class="mdl-list__item-secondary-action">
-                  <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="list-checkbox-laitier">
-                    <input type="checkbox" id="list-checkbox-laitier" class="mdl-checkbox__input"/>
+                  <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="i-laitier">
+                    <input type="checkbox" id="i-laitier" class="mdl-checkbox__input" name="tab-composition[]" value="laitier"/>
                   </label>
                 </span>
               </li>
@@ -192,6 +192,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
             <input type="submit" name="submitAjout" id="submitAjout" value="Ajouter" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent btn-submit">
           </form>
+
         </div>
       </div>
     </div>
@@ -201,7 +202,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       <!-- Contenu tab supprimer -->
       <div class="outer-div">
         <div class="formulaire">
-          <form action="{$base_url}controleur/FormulaireAjout">
+          <form method="post" action="../index.php/Formulaire/submitSuppr/">
           <h1 class="h1-text">Supprimer un plat</h1>
 
             <!-- Liste des plats avec radio bouton-->
