@@ -34,6 +34,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       <div class="outer-div">
         <div class="formulaire">
           <h1 class="h1-text">Ajouter un plat</h1>
+
+          <?php if (isset($message)) { 
+            if($insertionReussie){?>
+              <CENTER><h6 style="color:green;"> <?php echo $message; ?> </h6></CENTER><br>
+              <?php
+            }
+            else{?>
+              <CENTER><h6 style="color:red;"> <?php echo $message; ?> </h6></CENTER><br>
+              <?php
+            }
+           } ?>
           
           <form method="post" action="<?php echo base_url('index.php/Formulaire/submitAjout');?>">
 
@@ -67,7 +78,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               <span class="mdl-textfield__error">L'entrée n'est pas un chiffre</span>
             </div>
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-              <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="add-gs" name="i-gs">
+              <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="i-gs" name="i-gs">
               <label class="mdl-textfield__label" for="i-gs">Graisses saturées (g/100g)</label>
               <span class="mdl-textfield__error">L'entrée n'est pas un chiffre</span>
             </div>

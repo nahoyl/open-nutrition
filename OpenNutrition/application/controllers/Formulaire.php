@@ -55,7 +55,10 @@ class Formulaire extends CI_Controller {
         $this->form_validation->set_rules('options-type', 'Type plat', 'required');
 
         if ($this->form_validation->run() == FALSE) {
-            echo "Erreur validation";
+            $data['message'] = 'Certain champs ne sont pas remplit';
+            $data['insertionReussie'] = FALSE;
+            $this->lancerVueFormulaire($data);
+
         } else {
             
             //Setting values for table columns
@@ -90,7 +93,8 @@ class Formulaire extends CI_Controller {
                 $this->Ajouter_model->db_insertCompoPlat($dataComposition);
             }
 
-            $data['message'] = 'Data Inserted Successfully';
+            $data['message'] = 'Plat ajouté avec succès';
+            $data['insertionReussie'] = TRUE;
             //Loading View
             
             $this->lancerVueFormulaire($data);
