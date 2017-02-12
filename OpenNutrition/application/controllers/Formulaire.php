@@ -36,6 +36,7 @@ class Formulaire extends CI_Controller {
 
     public function submitAjout(){
         
+        $data["PlatCrous"] = $this->PlatCrous->getPlatCrous();
         $this->load->library('form_validation');
 
         $this->form_validation->set_error_delimiters('<div class="error">', '</div>');
@@ -53,6 +54,8 @@ class Formulaire extends CI_Controller {
         $this->form_validation->set_rules('i-p', 'Protéines', 'required');
 
         $this->form_validation->set_rules('options-type', 'Type plat', 'required');
+
+        $this->form_validation->set_rules('tab-composition[]', 'Composition', 'required');
 
         if ($this->form_validation->run() == FALSE) {
             $data['message'] = 'Certain champs ne sont pas remplit';
