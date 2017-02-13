@@ -22,7 +22,6 @@ class Formulaire extends CI_Controller {
 
     function __construct() {
         parent::__construct();
-        $this->load->model('Ajouter_model');
         $this->load->model('PlatCrous_model', 'PlatCrous', TRUE);
 
     }
@@ -30,13 +29,13 @@ class Formulaire extends CI_Controller {
     function index() {
         
         $data["PlatCrous"] = $this->PlatCrous->getPlatCrous();
+        $data["Allergenes"] = $this->PlatCrous->getPlatAllergene();
         $this->lancerVueFormulaire($data);
 
     }
 
     public function submitAjout(){
         
-        $data["PlatCrous"] = $this->PlatCrous->getPlatCrous();
         $this->load->library('form_validation');
 
         $this->form_validation->set_error_delimiters('<div class="error">', '</div>');
@@ -58,8 +57,12 @@ class Formulaire extends CI_Controller {
         $this->form_validation->set_rules('tab-composition[]', 'Composition', 'required');
 
         if ($this->form_validation->run() == FALSE) {
+
+            $data["PlatCrous"] = $this->PlatCrous->getPlatCrous();
+            $data["Allergenes"] = $this->PlatCrous->getPlatAllergene();
             $data['message'] = 'Certain champs ne sont pas remplit';
             $data['insertionReussie'] = FALSE;
+
             $this->lancerVueFormulaire($data);
 
         } else {
@@ -75,7 +78,7 @@ class Formulaire extends CI_Controller {
                 $this->input->post('i-p')
             );
 
-            $data = array(
+            $dataPlat = array(
                 'nomPlat' => $this->input->post('i-nomPlat'),
                 'prixPlat' => $this->input->post('i-prixPlat'),
                 'typePlat' => $this->input->post('options-type'),
@@ -84,7 +87,7 @@ class Formulaire extends CI_Controller {
             );
 
             //Transfering data to Model
-            $this->Ajouter_model->db_insertPlat($data);
+            $this->PlatCrous->db_insertPlat($dataPlat);
 
             $dataCompositionTmp = $this->input->post('tab-composition');
   
@@ -93,21 +96,25 @@ class Formulaire extends CI_Controller {
                     'nomPlat' => $this->input->post('i-nomPlat'),
                     'nomCompo' => $value 
                 );
-                $this->Ajouter_model->db_insertCompoPlat($dataComposition);
+                $this->PlatCrous->db_insertCompoPlat($dataComposition);
             }
 
+            // Mise à jour des données à afficher
+            $data["PlatCrous"] = $this->PlatCrous->getPlatCrous();
+            $data["Allergenes"] = $this->PlatCrous->getPlatAllergene();
             $data['message'] = 'Plat ajouté avec succès';
             $data['insertionReussie'] = TRUE;
-            //Loading View
-            
+
+            //Lancer la vue
             $this->lancerVueFormulaire($data);
         }
     }
 
     public function submitSuppr(){
-        $this->Ajouter_model->db_deleteplat($this->input->post('suppression'));
+        $this->PlatCrous->db_deleteplat($this->input->post('suppression'));
 
         $data["PlatCrous"] = $this->PlatCrous->getPlatCrous();
+        $data["Allergenes"] = $this->PlatCrous->getPlatAllergene();
         $this->lancerVueFormulaire($data);
 
     }

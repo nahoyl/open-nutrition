@@ -26,7 +26,7 @@ class PlatCrous_model extends CI_Model  {
                         ->from($this->tablePlatCrous)
                         ->join($this->tablePlat, "platscrous.nomPlat = plats.nomPlat")
                         ->where('typePlat','Entree')
-                        ->order_by('typePlat')
+                        ->order_by('note5C')
                         ->get()
                         ->result();
     }
@@ -47,7 +47,7 @@ class PlatCrous_model extends CI_Model  {
                         ->from($this->tablePlatCrous)
                         ->join($this->tablePlat, "platscrous.nomPlat = plats.nomPlat")
                         ->where('typePlat','Plat')
-                        ->order_by('typePlat')
+                        ->order_by('note5C')
                         ->get()
                         ->result();
     }
@@ -58,7 +58,7 @@ class PlatCrous_model extends CI_Model  {
                         ->from($this->tablePlatCrous)
                         ->join($this->tablePlat, "platscrous.nomPlat = plats.nomPlat")
                         ->where('typePlat','Dessert')
-                        ->order_by('typePlat')
+                        ->order_by('note5C')
                         ->get()
                         ->result();
     }
@@ -97,6 +97,41 @@ class PlatCrous_model extends CI_Model  {
             
         }
         return null;
+    }
+
+    /**
+     * @param : $data un tableau comprenant :
+     * - le nom du plat
+     * - le prix du plat
+     * - le type du plat
+     * - la note 5C
+     * - la note CO2
+     */
+    function db_insertPlat($data) {
+        $this->db->insert('plats', $data);
+        $this->db->insert('platscrous', array('nomPlat' => $data['nomPlat']));
+    }
+
+    /**
+     * @param : $data un tableau comprenant le nom du plat à ajouter et le nom de la composition associée
+     */
+    function db_insertCompoPlat($data) {
+        $this->db->insert('compositionplat', $data);
+    }
+
+    /**
+     * @param : $data le nom du plat à supprimer
+     */
+    function db_deletePlat($data) {
+
+        $this->db->where('nomPlat', $data);
+        $this->db->delete('platscrous');
+
+        $this->db->where('nomPlat', $data);
+        $this->db->delete('compositionplat');
+
+        $this->db->where('nomPlat', $data);
+        $this->db->delete('plats');
     }
     
     public function calculNote($densiteEnergetique, $graissesSaturees, $sucreSimples, $sodium, $fruitsLegumesNoix, $fibres, $proteines) {
