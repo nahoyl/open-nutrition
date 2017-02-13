@@ -74,6 +74,13 @@ class PlatCrous_model extends CI_Model  {
         
     }
 
+    public function getAllergene(){
+        return $this->db->select('*')
+                        ->from($this->allergene)              
+                        ->get()
+                        ->result();
+    }
+
     public function getPlatNote($plat){
         $notePlat = $this->db->select('note5C')
                         ->from($this->tablePlat)
@@ -120,6 +127,13 @@ class PlatCrous_model extends CI_Model  {
     }
 
     /**
+    * @param : $data un tableau comprenant le nom du plat à ajouter et le nom des allergènes associée
+    */
+    function db_insertPlatAllergene($data) {
+        $this->db->insert('composeallergene', $data);
+    }
+
+    /**
      * @param : $data le nom du plat à supprimer
      */
     function db_deletePlat($data) {
@@ -129,6 +143,9 @@ class PlatCrous_model extends CI_Model  {
 
         $this->db->where('nomPlat', $data);
         $this->db->delete('compositionplat');
+
+        $this->db->where('nomPlat', $data);
+        $this->db->delete('composeallergene');
 
         $this->db->where('nomPlat', $data);
         $this->db->delete('plats');

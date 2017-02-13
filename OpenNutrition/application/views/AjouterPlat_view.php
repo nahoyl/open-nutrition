@@ -179,6 +179,27 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               </li>
             </ul>
 
+            <h5>Allergènes</h5>
+            <ul class="demo-list-control mdl-list">
+              <?php
+
+              foreach ($Allergenes as $allergene) {
+              ?>
+              <li class="mdl-list__item">
+                <span class="mdl-list__item-primary-content">
+                  <?php echo $allergene->nomAllergene; ?>
+                </span>
+                <span class="mdl-list__item-secondary-action">
+                  <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="i-<?php echo $allergene->nomAllergene; ?>">
+                    <input type="checkbox" id="i-<?php echo $allergene->nomAllergene; ?>" class="mdl-checkbox__input" name="tab-allergene[]" value="<?php echo $allergene->nomAllergene; ?>"/>
+                  </label>
+                </span>
+              </li>
+              <?php
+              }
+              ?>
+            </ul>
+
             <input type="submit" name="submitAjout" id="submitAjout" value="Ajouter" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent btn-submit">
           </form>
 

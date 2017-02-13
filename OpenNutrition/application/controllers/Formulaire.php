@@ -29,7 +29,7 @@ class Formulaire extends CI_Controller {
     function index() {
         
         $data["PlatCrous"] = $this->PlatCrous->getPlatCrous();
-        $data["Allergenes"] = $this->PlatCrous->getPlatAllergene();
+        $data["Allergenes"] = $this->PlatCrous->getAllergene();
         $this->lancerVueFormulaire($data);
 
     }
@@ -59,15 +59,16 @@ class Formulaire extends CI_Controller {
         if ($this->form_validation->run() == FALSE) {
 
             $data["PlatCrous"] = $this->PlatCrous->getPlatCrous();
-            $data["Allergenes"] = $this->PlatCrous->getPlatAllergene();
+            $data["Allergenes"] = $this->PlatCrous->getAllergene();
             $data['message'] = 'Certain champs ne sont pas remplit';
             $data['insertionReussie'] = FALSE;
 
             $this->lancerVueFormulaire($data);
 
-        } else {
+        } 
+        else {
             
-            //Setting values for table columns
+            //Calcule de la note5C
             $note5C = $this->PlatCrous->calculNote(
                 $this->input->post('i-de'), 
                 $this->input->post('i-gs'), 
@@ -78,6 +79,7 @@ class Formulaire extends CI_Controller {
                 $this->input->post('i-p')
             );
 
+            // Insertion des données du plat
             $dataPlat = array(
                 'nomPlat' => $this->input->post('i-nomPlat'),
                 'prixPlat' => $this->input->post('i-prixPlat'),
@@ -86,9 +88,9 @@ class Formulaire extends CI_Controller {
                 'noteCO2' => $this->input->post('i-noteCO2')
             );
 
-            //Transfering data to Model
             $this->PlatCrous->db_insertPlat($dataPlat);
 
+            // Insertion de la composition du plat
             $dataCompositionTmp = $this->input->post('tab-composition');
   
             foreach ($dataCompositionTmp as $key => $value) {
@@ -99,9 +101,20 @@ class Formulaire extends CI_Controller {
                 $this->PlatCrous->db_insertCompoPlat($dataComposition);
             }
 
+            // Insertion des allergènes du plat
+            $dataAllergeneTmp = $this->input->post('tab-allergene');
+  
+            foreach ($dataAllergeneTmp as $key => $value) {
+                $dataAllergene = array(
+                    'nomPlat' => $this->input->post('i-nomPlat'),
+                    'nomAllergene' => $value 
+                );
+                $this->PlatCrous->db_insertPlatAllergene($dataAllergene);
+            }
+
             // Mise à jour des données à afficher
             $data["PlatCrous"] = $this->PlatCrous->getPlatCrous();
-            $data["Allergenes"] = $this->PlatCrous->getPlatAllergene();
+            $data["Allergenes"] = $this->PlatCrous->getAllergene();
             $data['message'] = 'Plat ajouté avec succès';
             $data['insertionReussie'] = TRUE;
 
@@ -114,7 +127,7 @@ class Formulaire extends CI_Controller {
         $this->PlatCrous->db_deleteplat($this->input->post('suppression'));
 
         $data["PlatCrous"] = $this->PlatCrous->getPlatCrous();
-        $data["Allergenes"] = $this->PlatCrous->getPlatAllergene();
+        $data["Allergenes"] = $this->PlatCrous->getAllergene();
         $this->lancerVueFormulaire($data);
 
     }
