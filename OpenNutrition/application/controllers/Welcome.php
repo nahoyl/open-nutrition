@@ -38,7 +38,7 @@ class Welcome extends CI_Controller {
 	}
         
         
-        public function getAllergeneIngredient($plat)
+        public function getAllergeneCO2($plat)
 	{
             // enlever les espaces
             $plat= str_replace("%20", " ", $plat);
