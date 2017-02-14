@@ -27,6 +27,8 @@ class Formulaire extends CI_Controller {
     }
 
     function index() {
+        //Verifie qu'on est connecter
+        $this->estConnecter();
         
         $data["PlatCrous"] = $this->PlatCrous->getPlatCrous();
         $data["Allergenes"] = $this->PlatCrous->getAllergene();
@@ -35,6 +37,8 @@ class Formulaire extends CI_Controller {
     }
 
     public function submitAjout(){
+        //Verifie qu'on est connecter
+        $this->estConnecter();
         
         $this->load->library('form_validation');
 
@@ -124,6 +128,9 @@ class Formulaire extends CI_Controller {
     }
 
     public function submitSuppr(){
+        //Verifie qu'on est connecter
+        $this->estConnecter();
+        
         $this->PlatCrous->db_deleteplat($this->input->post('suppression'));
 
         $data["PlatCrous"] = $this->PlatCrous->getPlatCrous();
@@ -138,6 +145,15 @@ class Formulaire extends CI_Controller {
         $this->load->view('NavGauche_view');
         $this->load->view('AjouterPlat_view', $data);
         $this->load->view('Footer_view');
+    }
+    
+    
+    
+        private function estConnecter() {
+            //fonction qui verifie qu'on est connecter 
+        if (empty($this->session->userdata("identifiant"))) {
+            redirect('Welcome');
+        }
     }
 
 }
