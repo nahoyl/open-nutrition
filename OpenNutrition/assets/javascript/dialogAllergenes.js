@@ -3,15 +3,16 @@ jQuery(document).ready(function () {
 });
 
 function gestionDialog() {
-//    $('.nomplat').click(function () {
-$(document).on('click','.nomplat',function(e){
+    $('.nomplat').click(function () {
+//$(document).on('click','.nomplat',function(e){
         var nomPlats = $(this).html();
         $.ajax({
-            url: 'http://192.168.0.48/open-nutrition/OpenNutrition/index.php/Welcome/getAllergeneCO2/' + nomPlats,
+            url: 'http://192.168.1.47/open-nutrition/OpenNutrition/index.php/Welcome/getAllergeneCO2/' + nomPlats,
             type: 'get',
             dataType: 'html', // On désire recevoir du HTML
             success: function (code_html, statut) { // code_html contient le HTML renvoyé
-                $('#dialog').html(code_html);
+                $('#dialog').replaceWith(code_html);
+                window.componentHandler.upgradeDom();
                 var dialog = document.querySelector('#dialog');
 
                 if (!dialog.showModal) {
