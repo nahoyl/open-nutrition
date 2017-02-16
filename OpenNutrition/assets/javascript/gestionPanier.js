@@ -38,8 +38,8 @@ function gestionPanier() {
 
 
 function possibleSupprimerLePanier() {
-    $(document).on('click', 'i.material-icons.float-right', function (e) {
-//    $('i.material-icons.float-right').click(function () {
+//    $(document).on('click', 'i.material-icons.float-right', function (e) {
+    $('i.material-icons.float-right').click(function () {
 //        console.log(this);
 //        $(this).checked = false;
         var par = ($(this).parents('li')).attr('class');
