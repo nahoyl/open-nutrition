@@ -9,13 +9,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<title>Open Nutrition</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-		<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
-		<script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
-		<script defer src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
-                <!--<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.js"></script>-->
-		<script defer src="<?php echo js_url('gestionPanier'); ?>"></script>
-        <script defer src="<?php echo js_url('dialog-polyfill'); ?>"></script>
-        <script defer src="<?php echo js_url('dialogAllergenes'); ?>"></script>
+		<!--<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">-->
+		<link rel="stylesheet" href="<?php echo css_url('material.min'); ?>">
+
 
 	</head>
 	

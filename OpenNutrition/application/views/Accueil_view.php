@@ -62,7 +62,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <!-- List with avatar and controls -->
 
 
-                    <ul class="demo-list-control mdl-list">
+                    <ul class="demo-list-control mdl-list listePlat">
 
 
                         <?php
@@ -76,7 +76,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <span class="mdl-list__item-primary-content">
                                     <p class ="note note<?php echo $plat->note5C; ?>"><?php echo $plat->note5C; ?></p>
 
-                                    <span class='nomplat'><?php echo $plat->nomPlat; ?> </span>
+                                    <span class='nomplat'><?php echo $plat->nomPlat; ?></span>
                                     <span class="mdl-list__item-sub-title"><?php echo $plat->prixPlat; ?>€</span>
                                 </span>
 
@@ -110,7 +110,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <div class="mdl-card__supporting-text">
 
 
-                    <ul class="demo-list-control mdl-list">
+                    <ul class="demo-list-control mdl-list listeEntree">
 
 
 
@@ -124,7 +124,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <li class="mdl-list__item mdl-list__item--two-line" id="<?php echo $nomPlat; ?>">
                                 <span class="mdl-list__item-primary-content">
                                     <p class ="note note<?php echo $plat->note5C; ?>"><?php echo $plat->note5C; ?></p>
-                                    <span class='nomplat'><?php echo $plat->nomPlat; ?> </span>
+                                    <span class='nomplat'><?php echo$plat->nomPlat; ?></span>
                                     <span class="mdl-list__item-sub-title"><?php echo $plat->prixPlat; ?>€</span>
                                 </span>
 
@@ -163,7 +163,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <div class="mdl-card__supporting-text">
 
 
-                    <ul class="demo-list-control mdl-list">
+                    <ul class="demo-list-control mdl-list listeDessert">
 
 
 
@@ -178,7 +178,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <li class="mdl-list__item mdl-list__item--two-line" id="<?php echo $nomPlat; ?>">
                                 <span class="mdl-list__item-primary-content">
                                     <p class ="note note<?php echo $plat->note5C; ?>"><?php echo $plat->note5C; ?></p>
-                                    <span class='nomplat'><?php echo $plat->nomPlat; ?> </span>
+                                    <span class='nomplat'><?php echo $plat->nomPlat; ?></span>
                                     <span class="mdl-list__item-sub-title"><?php echo $plat->prixPlat; ?>€</span>
                                 </span>
 
@@ -201,7 +201,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </section>
 
 </main>
-    <dialog id="dialog" class="mdl-dialog">
+<dialog id="dialog" class="mdl-dialog">
 </dialog>
 
 

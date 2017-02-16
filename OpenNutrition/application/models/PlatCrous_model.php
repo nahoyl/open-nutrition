@@ -13,26 +13,55 @@ if (!defined('BASEPATH'))
  *
  * @author Abdel
  */
-class PlatCrous_model extends CI_Model  {
+class PlatCrous_model extends CI_Model {
+
     private $tablePlatCrous = 'platscrous';
     private $tablePlat = 'plats';
     private $compose_Allergene = 'composeallergene';
     private $allergene = 'allergenes';
-    
-    
+    private $compositionplat = 'compositionplat';
+
+    public function getSuggestion($compo, $type) {
+        $query = $this->db->select('DISTINCT(platscrous.nomPlat),prixPlat,typePlat,note5C,noteCO2')
+                ->from($this->tablePlatCrous)
+                ->join($this->tablePlat, "platscrous.nomPlat = plats.nomPlat")
+                ->join($this->compositionplat, "compositionplat.nomPlat = plats.nomPlat")
+                ->where_not_in('nomCompo', $compo)
+                ->where('typePlat', $type)
+                ->order_by('note5C', 'nomCompo')
+                ->get()
+                ->result();
+//        var_dump($this->db);
+        return $query;
+    }
+
+    public function getPlatAvecComposition($lesPlats, $type) {
+        $query = $this->db->select('DISTINCT(platscrous.nomPlat),prixPlat,typePlat,note5C,noteCO2')
+                ->from($this->tablePlatCrous)
+                ->join($this->tablePlat, "platscrous.nomPlat = plats.nomPlat")
+                ->join($this->compositionplat, "compositionplat.nomPlat = plats.nomPlat");
+//        var_dump($lesPlats);
+        if (!empty($lesPlats)) {
+            $query->where_not_in('compositionplat.nomPlat', $lesPlats);
+        }
+        $query = $query->where('typePlat', $type)
+                ->get()
+                ->result();
+        return $query;
+    }
+
     public function getPlatCrousEntree() {
-            
         return $this->db->select('*')
                         ->from($this->tablePlatCrous)
                         ->join($this->tablePlat, "platscrous.nomPlat = plats.nomPlat")
-                        ->where('typePlat','Entree')
+                        ->where('typePlat', 'Entree')
                         ->order_by('note5C')
                         ->get()
                         ->result();
     }
 
     public function getPlatCrous() {
-            
+
         return $this->db->select('*')
                         ->from($this->tablePlatCrous)
                         ->join($this->tablePlat, "platscrous.nomPlat = plats.nomPlat")
@@ -40,68 +69,79 @@ class PlatCrous_model extends CI_Model  {
                         ->get()
                         ->result();
     }
-    
+
     public function getPlatCrousPlat() {
-            
+
         return $this->db->select('*')
                         ->from($this->tablePlatCrous)
                         ->join($this->tablePlat, "platscrous.nomPlat = plats.nomPlat")
-                        ->where('typePlat','Plat')
+                        ->where('typePlat', 'Plat')
                         ->order_by('note5C')
                         ->get()
                         ->result();
     }
-    
+
     public function getPlatCrousDessert() {
-            
+
         return $this->db->select('*')
                         ->from($this->tablePlatCrous)
                         ->join($this->tablePlat, "platscrous.nomPlat = plats.nomPlat")
-                        ->where('typePlat','Dessert')
+                        ->where('typePlat', 'Dessert')
                         ->order_by('note5C')
                         ->get()
                         ->result();
     }
-    
-    public function getPlatAllergene($plat){
-        return $this->db->select('*')
-                        ->from($this->tablePlatCrous)              
-                        ->join($this->compose_Allergene,'platscrous.nomPlat = composeallergene.nomPlat')
-                        ->join($this->allergene,'allergenes.nomAllergene = composeallergene.nomAllergene')
-                        ->where('platscrous.nomPlat',$plat)
-                        ->get()
-                        ->result();
-        
-    }
 
-    public function getAllergene(){
+    public function getPlatAllergene($plat) {
         return $this->db->select('*')
-                        ->from($this->allergene)              
+                        ->from($this->tablePlatCrous)
+                        ->join($this->compose_Allergene, 'platscrous.nomPlat = composeallergene.nomPlat')
+                        ->join($this->allergene, 'allergenes.nomAllergene = composeallergene.nomAllergene')
+                        ->where('platscrous.nomPlat', $plat)
                         ->get()
                         ->result();
     }
 
-    public function getPlatNote($plat){
+    public function getAllergene() {
+        return $this->db->select('*')
+                        ->from($this->allergene)
+                        ->get()
+                        ->result();
+    }
+
+    public function getComposition($plat) {
+        $notePlat = $this->db->select('nomCompo')
+                ->from($this->tablePlat)
+                ->join($this->compositionplat, "compositionplat.nomPlat = plats.nomPlat")
+                ->where('plats.nomPlat', $plat)
+                ->get()
+                ->result();
+//        if (!empty($notePlat)) {
+//            return $notePlat[0]->note5C;
+//        }
+        return $notePlat;
+    }
+
+    public function getPlatNote($plat) {
         $notePlat = $this->db->select('note5C')
-                        ->from($this->tablePlat)
-                        ->where('nomPlat',$plat)
-                        ->get()
-                        ->result();
-        if(!empty($notePlat)){
+                ->from($this->tablePlat)
+                ->where('nomPlat', $plat)
+                ->get()
+                ->result();
+        if (!empty($notePlat)) {
             return $notePlat[0]->note5C;
-            
         }
         return null;
     }
-    public function getPlatCo2($plat){
+
+    public function getPlatCo2($plat) {
         $noteCO2 = $this->db->select('noteCO2')
-                        ->from($this->tablePlat)
-                        ->where('nomPlat',$plat)
-                        ->get()
-                        ->result();
-        if(!empty($noteCO2)){
+                ->from($this->tablePlat)
+                ->where('nomPlat', $plat)
+                ->get()
+                ->result();
+        if (!empty($noteCO2)) {
             return $noteCO2[0]->noteCO2;
-            
         }
         return null;
     }
@@ -127,8 +167,8 @@ class PlatCrous_model extends CI_Model  {
     }
 
     /**
-    * @param : $data un tableau comprenant le nom du plat à ajouter et le nom des allergènes associée
-    */
+     * @param : $data un tableau comprenant le nom du plat à ajouter et le nom des allergènes associée
+     */
     function db_insertPlatAllergene($data) {
         $this->db->insert('composeallergene', $data);
     }
@@ -150,7 +190,7 @@ class PlatCrous_model extends CI_Model  {
         $this->db->where('nomPlat', $data);
         $this->db->delete('plats');
     }
-    
+
     public function calculNote($densiteEnergetique, $graissesSaturees, $sucreSimples, $sodium, $fruitsLegumesNoix, $fibres, $proteines) {
         $score = $this->calculScoreNote($densiteEnergetique, $graissesSaturees, $sucreSimples, $sodium, $fruitsLegumesNoix, $fibres, $proteines);
         if ($score < -1)
@@ -317,4 +357,5 @@ class PlatCrous_model extends CI_Model  {
         if ($proteines <= 1.6)
             return 0;
     }
+
 }

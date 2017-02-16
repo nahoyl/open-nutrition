@@ -13,8 +13,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			</div>
 			<!-- Tabs -->
 			<div class="mdl-layout__tab-bar mdl-js-ripple-effect">
-			  <a href="#fixed-tab-1" class="mdl-layout__tab is-active">Plats</a>
-			  <a href="#fixed-tab-2" class="mdl-layout__tab">Entrées</a>
-			  <a href="#fixed-tab-3" class="mdl-layout__tab">Desserts</a>
+			  <a href="#fixed-tab-1" class="mdl-layout__tab is-active lien">Plats</a>
+			  <a href="#fixed-tab-2" class="mdl-layout__tab lien">Entrées</a>
+			  <a href="#fixed-tab-3" class="mdl-layout__tab lien">Desserts</a>
 			</div>
 		  </header>

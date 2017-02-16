@@ -1,9 +1,13 @@
 jQuery(document).ready(function () {
+    gestionDialog();
+});
 
-    $('.nomplat').click(function () {
+function gestionDialog() {
+//    $('.nomplat').click(function () {
+$(document).on('click','.nomplat',function(e){
         var nomPlats = $(this).html();
         $.ajax({
-            url: 'http://192.168.0.48/open-nutrition/OpenNutrition/index.php/Welcome/getAllergeneIngredient/'+nomPlats,
+            url: 'http://192.168.0.48/open-nutrition/OpenNutrition/index.php/Welcome/getAllergeneCO2/' + nomPlats,
             type: 'get',
             dataType: 'html', // On désire recevoir du HTML
             success: function (code_html, statut) { // code_html contient le HTML renvoyé
@@ -14,7 +18,7 @@ jQuery(document).ready(function () {
                     dialogPolyfill.registerDialog(dialog);
                 }
                 dialog.showModal();
-                
+//                  $(document).on('click','.fermerDialog',function(e){
                 $('.fermerDialog').click(function () {
                     dialog.close();
                     $('dialog').html('');
@@ -26,30 +30,8 @@ jQuery(document).ready(function () {
         });
     })
 
-
-
-
-});
-function ajouterClickDialog() {
-
-    var dialog = document.querySelector('#dialog');
-//    var closeButton = ;
-    if (!dialog.showModal) {
-        dialogPolyfill.registerDialog(dialog);
-    }
-    dialog.showModal();
-    var closeClickHandler = function (event) {
-        dialog.close();
-        $('dialog').html('');
-    };
 }
 
-function fermerDialog() {
 
-    $('.fermerDialog').click(function () {
-        dialog.close();
-        $('dialog').html('');
-    });
-}
 
 

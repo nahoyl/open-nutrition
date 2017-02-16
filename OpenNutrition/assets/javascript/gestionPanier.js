@@ -1,7 +1,10 @@
 $(document).ready(function () {
+    gestionPanier();
+});
+function gestionPanier() {
 
-
-    $("input[type=radio][name=Plat]").click(function () {
+    $(document).on('click', 'input[type=radio][name=Plat]', function (e) {
+//    $("input[type=radio][name=Plat]").click(function () {
         var platChecked = $("input[type=radio][name=Plat]:checked").val();
         var platPrixEltChecked = $("#" + platChecked + " .mdl-list__item-sub-title").text();
         var platNomEltChecked = $("#" + platChecked + " .nomplat").text();
@@ -9,8 +12,8 @@ $(document).ready(function () {
 
         platSelectonner(platChecked, platPrixEltChecked, platNomEltChecked, platNote, 'Plat')
     });
-
-    $("input[type=radio][name=Dessert]").click(function () {
+    $(document).on('click', 'input[type=radio][name=Dessert]', function (e) {
+//    $("input[type=radio][name=Dessert]").click(function () {
         var dessertChecked = $("input[type=radio][name=Dessert]:checked").val();
         var dessertPrixEltChecked = $("#" + dessertChecked + " .mdl-list__item-sub-title").text();
         var dessertNomEltChecked = $("#" + dessertChecked + " .nomplat").text();
@@ -18,7 +21,8 @@ $(document).ready(function () {
 
         platSelectonner(dessertChecked, dessertPrixEltChecked, dessertNomEltChecked, dessertNote, 'Dessert')
     });
-    $("input[type=radio][name=Entree]").click(function () {
+    $(document).on('click', 'input[type=radio][name=Entree]', function (e) {
+//    $("input[type=radio][name=Entree]").click(function () {
         var entreeChecked = $("input[type=radio][name=Entree]:checked").val();
         var entreePrixEltChecked = $("#" + entreeChecked + " .mdl-list__item-sub-title").text();
         var entreeNomEltChecked = $("#" + entreeChecked + " .nomplat").text();
@@ -30,12 +34,14 @@ $(document).ready(function () {
 
 
 
-});
+}
 
 
 function possibleSupprimerLePanier() {
-    $('i.material-icons.float-right').click(function () {
-        console.log(this);
+    $(document).on('click', 'i.material-icons.float-right', function (e) {
+//    $('i.material-icons.float-right').click(function () {
+//        console.log(this);
+//        $(this).checked = false;
         var par = ($(this).parents('li')).attr('class');
         var res = par.replace(/ /g, '.');
         $(res).remove();
@@ -60,7 +66,7 @@ function platSelectonner(eltChecked, prixEltChecked, nom, note, type) {
         if ($('.mdl-list__item.mdl-list__item--two-line.width-auto.padding-bottom-top-0px.' + type).size()) {
             var eltPanier = '<span class="mdl-list__item-primary-content">';
             eltPanier += '<p class ="note note' + note + '">' + note + '</p>';
-            eltPanier += '<span>' + nom + '</span>';
+            eltPanier += '<span class="span_nom">' + nom + '</span>';
             eltPanier += '<span class="mdl-list__item-sub-title">' + prixEltChecked + '<i class="material-icons float-right">cancel</i></span></span>';
             $('.mdl-list__item.mdl-list__item--two-line.width-auto.padding-bottom-top-0px.' + type).html(eltPanier);
         } else {
@@ -111,7 +117,7 @@ function ajouterElementPanier(nom, prix, note, type) {
     var eltPanier = '<li class=" mdl-list__item mdl-list__item--two-line width-auto padding-bottom-top-0px ' + type + '">';
     eltPanier += '<span class="mdl-list__item-primary-content">';
     eltPanier += '<p class ="note note' + note + '">' + note + '</p>';
-    eltPanier += '<span>' + nom + '</span>';
+    eltPanier += '<span class="span_nom">' + nom + '</span>';
     eltPanier += '<span class="mdl-list__item-sub-title">' + prix;
     eltPanier += '<i class="material-icons float-right">cancel</i></span></span></li>';
 
