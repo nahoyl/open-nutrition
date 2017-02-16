@@ -1,4 +1,4 @@
-<?php
+<?php 
 defined('BASEPATH') OR exit('No direct script access allowed');
 $nbPlat = 3;
 
@@ -69,7 +69,7 @@ foreach ($suggestion as $uneSuggestion) {
         </span>
 
         <span class="mdl-list__item-secondary-action">
-            <label class="demo-list-radio mdl-radio mdl-js-radio mdl-js-ripple-effect" for="list-option2-<?php echo $nbPlat; ?>">
+            <label class="demo-list-radio mdl-radio mdl-js-radio mdl-js-ripple-effect" for="list-option2<?php echo $uneSuggestion->typePlat; ?>-<?php echo $nbPlat; ?>">
                 <input type="radio" id="list-option2<?php echo $uneSuggestion->typePlat; ?>-<?php echo $nbPlat; ?>" class="mdl-radio__button <?php echo $uneSuggestion->typePlat; ?>" name="<?php echo $uneSuggestion->typePlat; ?>" value="<?php echo $nomPlat; ?>" />
             </label>
         </span>
