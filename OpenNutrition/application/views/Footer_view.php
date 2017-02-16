@@ -1,7 +1,10 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
+<dialog id="dialog" class="mdl-dialog">
+</dialog>
 </div>
+
 
 <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
 <!--<script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>-->

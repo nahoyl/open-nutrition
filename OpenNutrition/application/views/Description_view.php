@@ -14,7 +14,7 @@ foreach ($allergene as $key => $value) {
 $allerg .= ".";
 ?>
 
-
+<dialog id="dialog" class="mdl-dialog">
 <!--<dialog class="mdl-dialog" id="modal-example">-->
     <h3 class="mdl-dialog__title"><p class ="note note<?php echo $notePlat; ?>"><?php echo $notePlat; ?></p> <?php echo $nomPlat; ?> </h3>
     <div class="mdl-dialog__content">
@@ -34,7 +34,7 @@ $allerg .= ".";
     <div class="mdl-dialog__actions mdl-dialog__actions--full-width">
         <button type="button" class="mdl-button fermerDialog">Fermer</button>
     </div>
-<!--</dialog>-->
+</dialog>
 
 
 

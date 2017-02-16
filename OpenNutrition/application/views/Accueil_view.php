@@ -45,6 +45,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 </style>
 
+
+
 <main class="mdl-layout__content">
 
 
@@ -200,8 +202,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </div>
     </section>
 
+    
 </main>
-<dialog id="dialog" class="mdl-dialog">
-</dialog>
+
 
 
