@@ -62,7 +62,7 @@ function nbElemtentDansLePannier() {
 }
 
 function chargerListAvecUnPlat(plat, type, baliseUL) {
-    var ulrAjax = 'http://192.168.0.48/open-nutrition/OpenNutrition/index.php/Welcome/getListeTrier/' + plat + '' + type;
+    var ulrAjax = 'http://192.168.1.47/open-nutrition/OpenNutrition/index.php/Welcome/getListeTrier/' + plat + '' + type;
 //	console.log(ulrAjax);
     $.ajax({
         url: ulrAjax, // La ressource ciblée
@@ -71,9 +71,10 @@ function chargerListAvecUnPlat(plat, type, baliseUL) {
         success: function (code_html, statut) { // success est toujours en place, bien sûr !
             if (existPanier()) {
                 $(baliseUL).html(code_html);
-//			gestionPanier();
-//			gestionDialog();
-//                $.getScript("../assets/javascript/material.min.js");
+                window.componentHandler.upgradeDom();
+                
+			gestionPanier();
+			gestionDialog();
             }
         },
         error: function (resultat, statut, erreur) {
