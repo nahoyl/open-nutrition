@@ -70,6 +70,18 @@ class PlatCrous_model extends CI_Model {
                         ->result();
     }
 
+    public function platCrousExiste($platAVerifier) {
+
+        $lesPlats = $this->getPlatCrous();
+
+        foreach($lesPlats as $plat){
+            if($plat->nomPlat == $platAVerifier){
+                return true;
+            }
+        }
+        return false;
+    }
+
     public function getPlatCrousPlat() {
 
         return $this->db->select('*')
