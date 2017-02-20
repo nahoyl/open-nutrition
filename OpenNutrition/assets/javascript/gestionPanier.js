@@ -47,15 +47,14 @@ function possibleSupprimerLePanier() {
         $(res).remove();
         if ($('.mdl-list__item.mdl-list__item--two-line.width-auto.padding-bottom-top-0px').size() == 0) {
             $('.mdl-card__title.mdl-card--expand').html(faiteVotreChoix());
+            window.componentHandler.upgradeDom();
         }
     });
 
 }
 
 function faiteVotreChoix() {
-    var choix = '<div class="mdl-card__title mdl-card--expand">';
-    choix += '           <h2 class="mdl-card__title-text">Faites votre choix</h2>';
-    choix += '         </div>';
+    var choix = '<h2 class="mdl-card__title-text">Faites votre choix</h2>';
     return choix;
 }
 
@@ -82,6 +81,7 @@ function platSelectonner(eltChecked, prixEltChecked, nom, note, type) {
 
     }
     possibleSupprimerLePanier();
+    
 
 }
 
@@ -124,11 +124,7 @@ function ajouterElementPanier(nom, prix, note, type) {
     return eltPanier;
 }
 function ajoutFinPanier() {
-    var finPanier = '</ul> </div> <div class="mdl-card__supporting-text">';
-    finPanier += 'Le plat n\'est pas équilibré. </div>';
-    finPanier += ' <!--<div class="mdl-card__actions mdl-card--border">';
-    finPanier += '<a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect btnabdel">';
-    finPanier += ' Suggestion </a> </div>--> </div>';
+    var finPanier = '</ul> </div> </div>';
 
     return finPanier;
 

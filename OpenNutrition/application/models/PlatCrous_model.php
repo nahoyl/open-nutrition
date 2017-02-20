@@ -21,12 +21,12 @@ class PlatCrous_model extends CI_Model {
     private $allergene = 'allergenes';
     private $compositionplat = 'compositionplat';
 
-    public function getSuggestion($compo, $type) {
+    public function getSuggestion($laComposition, $type) {
         $query = $this->db->select('DISTINCT(platscrous.nomPlat),prixPlat,typePlat,note5C,noteCO2')
                 ->from($this->tablePlatCrous)
                 ->join($this->tablePlat, "platscrous.nomPlat = plats.nomPlat")
                 ->join($this->compositionplat, "compositionplat.nomPlat = plats.nomPlat")
-                ->where_not_in('nomCompo', $compo)
+                ->where_not_in('nomCompo', $laComposition)
                 ->where('typePlat', $type)
                 ->order_by('note5C', 'nomCompo')
                 ->get()
@@ -35,14 +35,13 @@ class PlatCrous_model extends CI_Model {
         return $query;
     }
 
-    public function getPlatAvecComposition($lesPlats, $type) {
+    public function getPlatAvecComposition($lesPlatsDejaAjouter, $type) {
         $query = $this->db->select('DISTINCT(platscrous.nomPlat),prixPlat,typePlat,note5C,noteCO2')
                 ->from($this->tablePlatCrous)
                 ->join($this->tablePlat, "platscrous.nomPlat = plats.nomPlat")
                 ->join($this->compositionplat, "compositionplat.nomPlat = plats.nomPlat");
-//        var_dump($lesPlats);
-        if (!empty($lesPlats)) {
-            $query->where_not_in('compositionplat.nomPlat', $lesPlats);
+        if (!empty($lesPlatsDejaAjouter)) {
+            $query->where_not_in('compositionplat.nomPlat', $lesPlatsDejaAjouter);
         }
         $query = $query->where('typePlat', $type)
                 ->get()

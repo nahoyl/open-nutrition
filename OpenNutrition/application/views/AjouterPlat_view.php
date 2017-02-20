@@ -231,7 +231,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                         <span class="mdl-list__item-secondary-action">
                             <label class="demo-list-radio mdl-radio mdl-js-radio mdl-js-ripple-effect" for="list-option-suppr-<?php echo $idGenerator; ?>">
-                                <input type="radio" id="list-option-suppr-<?php echo $idGenerator; ?>" class="mdl-radio__button" name="suppression" value="<?php echo $nomPlat; ?>" />
+                                <input type="radio" id="list-option-suppr-<?php echo $idGenerator; ?>" class="mdl-radio__button" name="suppression" value="<?php echo $plat->nomPlat; ?>" />
                             </label>
                         </span>
                     </li>

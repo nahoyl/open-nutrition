@@ -50,9 +50,26 @@ class Welcome extends CI_Controller {
 
     public function getListeTrier($plat, $deuxplat, $type) {
 
+        $lesCompo = $this->laCompoDesPlats($plat,$deuxplat);
+
+        $data["suggestion"] = $this->PlatCrous->getSuggestion($lesCompo, $type);
+        $nbSuggestion = count($data["suggestion"]);
+
+        $lesPlatDejaAjouter = $this->lesPlatsAjouter($data["suggestion"]);
+
+        $lesPlats = $this->PlatCrous->getPlatAvecComposition($lesPlatDejaAjouter, $type);
+//        var_dump($lesPlatDejaAjouter);
+//        var_dump($lesPlats);
+        
+        $data["suggestion"] = $this->reunirTousLesPlats($nbSuggestion,$data,$lesPlats);
+        
+        $this->load->view('Suggestion_view', $data);
+    }
+
+    private function laCompoDesPlats($plat,$deuxplat) {
         $plat = str_replace("%20", " ", $plat);
         $compo = $this->PlatCrous->getComposition($plat);
-        $lesCompo;
+        $lesCompo = null;
         $laCleDUneCompo;
         foreach ($compo as $laCleDUneCompo => $uneCompo) {
             $lesCompo[$laCleDUneCompo] = $uneCompo->nomCompo;
@@ -65,23 +82,22 @@ class Welcome extends CI_Controller {
                 $lesCompo[$nbElement + $laCleD] = $uneCompo->nomCompo;
             }
         }
-
-        $data["suggestion"] = $this->PlatCrous->getSuggestion($lesCompo, $type);
-//            var_dump($data["suggestion"]);
-        $nbSuggestion = count($data["suggestion"]);
-
+//        var_dump($lesCompo);
+        return $lesCompo;
+    }
+    private function lesPlatsAjouter($data) {
         $lesPlatDejaAjouter = null;
-        foreach ($data["suggestion"] as $laCle => $unPlat) {
+        foreach ($data as $laCle => $unPlat) {
             $lesPlatDejaAjouter[$laCle] = $unPlat->nomPlat;
         }
-
-        $lesPlats = $this->PlatCrous->getPlatAvecComposition($lesPlatDejaAjouter, $type);
-
-        foreach ($lesPlats as $unePlat) {
-            $data["suggestion"][$nbSuggestion] = $unePlat;
+        return $lesPlatDejaAjouter;  
+    }
+    private function reunirTousLesPlats($nbSuggestion,$data,$lesPlats){
+        foreach ($lesPlats as $unPlat) {
+            $data["suggestion"][$nbSuggestion] = $unPlat;
             $nbSuggestion++;
-        }
-        $this->load->view('Suggestion_view', $data);
+        };
+        return $data["suggestion"];
     }
 
 }

@@ -59,6 +59,7 @@ class Formulaire extends CI_Controller {
         $this->form_validation->set_rules('options-type', 'Type plat', 'required');
 
         $this->form_validation->set_rules('tab-composition[]', 'Composition', 'required');
+        $this->form_validation->set_rules('tab-allergene[]', 'Composition', 'required');
 
         if ($this->form_validation->run() == FALSE) {
 
@@ -110,7 +111,7 @@ class Formulaire extends CI_Controller {
                 // Insertion des allergènes du plat
                 $dataAllergeneTmp = $this->input->post('tab-allergene');
       
-                if (!empty($dataAllergene)) {
+                if (!empty($dataAllergeneTmp)) {
         
                     foreach ($dataAllergeneTmp as $key => $value) {
                         $dataAllergene = array(
@@ -146,6 +147,7 @@ class Formulaire extends CI_Controller {
     public function submitSuppr(){
         //Verifie qu'on est connecter
         $this->estConnecter();
+        echo $this->input->post('suppression');
         
         $this->PlatCrous->db_deleteplat($this->input->post('suppression'));
 

@@ -7,7 +7,7 @@ function gestionDialog() {
 //$(document).on('click','.nomplat',function(e){
         var nomPlats = $(this).html();
         $.ajax({
-            url: 'http://192.168.1.47/open-nutrition/OpenNutrition/index.php/Welcome/getAllergeneCO2/' + nomPlats,
+            url: baseURL()+'/Welcome/getAllergeneCO2/' + nomPlats,
             type: 'get',
             dataType: 'html', // On désire recevoir du HTML
             success: function (code_html, statut) { // code_html contient le HTML renvoyé
@@ -32,6 +32,12 @@ function gestionDialog() {
     })
 
 }
+
+function baseURL(){
+    return 'http://192.168.0.48/open-nutrition/OpenNutrition/index.php';
+}
+
+
 
 
 
