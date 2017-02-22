@@ -32,7 +32,7 @@ class Utilisateur extends CI_Controller {
             $type = $this->input->post('options-type');
             $mdp = $this->input->post('i-mdp1');
 
-            $this->UtilisateurModel->insererUtilisateur($nom, $type, $mdp);
+            $this->UtilisateurModel->insererUtilisateur($nom, $type, $this->hash($mdp));
             redirect('Utilisateur');
         }
     }
@@ -66,6 +66,10 @@ class Utilisateur extends CI_Controller {
         if ($this->encrypt->decode($this->session->userdata("open_nutrition")) != "administrateur") {
             redirect('Welcome');
         }
+    }
+    
+        private function hash($string) {
+        return hash('sha512', $string . config_item('encryption_key'));
     }
 
 }
