@@ -11,23 +11,18 @@ class Connexion extends CI_Controller {
 
     public function index() {
 
-        $this->load->view('Header_view');
-        $this->load->view('NavLogin_view');
-        $this->load->view('NavGauche_view');
-        $this->load->view('Login_view');
-        $this->load->view('Footer_view');
+        $this->lancerView();
     }
 
     public function seConnecter() {
 
         $this->load->library('form_validation');
-        $this->form_validation->set_error_delimiters('<div class="error">', '</div>');
-        $this->form_validation->set_rules('i-identifiant', 'Identifiant', 'required');
-        $this->form_validation->set_rules('i-mdp', 'Mot de passe', 'required|min_length[8]|max_length[30]');
-        $this->form_validation->set_rules('type-user', 'Type connexion', 'required');
+        $this->form_validation->set_rules('i-identifiant', 'identifiant', 'required');
+        $this->form_validation->set_rules('i-mdp', 'mot de passe', 'required|min_length[8]|max_length[30]');
+        $this->form_validation->set_rules('type-user', 'type connexion', 'required');
 
         if ($this->form_validation->run() == FALSE) {
-            echo "Erreur validation";
+            $this->lancerView();
         } else {
             $mdp = $this->input->post('i-mdp');
             $identifiant = $this->input->post('i-identifiant');
@@ -39,8 +34,7 @@ class Connexion extends CI_Controller {
                 $this->ajouterUneSession($identifiant, $mdp, $typeConnexion);
                 redirect('Welcome');
             } else {
-                redirect('Welcome');
-                echo 'erreur';
+                $this->lancerView();
             }
         }
     }
@@ -64,6 +58,14 @@ class Connexion extends CI_Controller {
         } else if ($typeConnexion == "utilisateur") {
             
         }
+    }
+    private function lancerView() {
+        $this->load->view('Header_view');
+        $this->load->view('NavLogin_view');
+        $this->load->view('NavGauche_view');
+        $this->load->view('Login_view');
+        $this->load->view('Footer_view');
+        
     }
 
 }

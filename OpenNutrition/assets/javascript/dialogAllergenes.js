@@ -34,7 +34,8 @@ function gestionDialog() {
 }
 
 function baseURL(){
-    return 'http://infolimon.iutmontp.univ-montp2.fr/~aitabdelloilia/open-nutrition/OpenNutrition/index.php';
+//    return 'http://infolimon.iutmontp.univ-montp2.fr/~aitabdelloilia/open-nutrition/OpenNutrition/index.php';
+    return 'http://192.168.0.48/open-nutrition/OpenNutrition/index.php';
 }
 
 

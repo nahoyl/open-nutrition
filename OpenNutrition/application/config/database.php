@@ -77,13 +77,13 @@ $db['default'] = array(
 	'dsn'	=> '',
 	'hostname' => 'localhost',
     // a l'iut
-	'username' => 'aitabdelloilia',
-	'password' => '1107026887V',
-	'database' => 'aitabdelloilia',
+//	'username' => 'aitabdelloilia',
+//	'password' => '1107026887V',
+//	'database' => 'aitabdelloilia',
     // Local
-//	'username' => 'root',
-//	'password' => '',
-//	'database' => 'open_nutrition',
+	'username' => 'root',
+	'password' => '',
+	'database' => 'open_nutrition',
     
     
 	'dbdriver' => 'mysqli',

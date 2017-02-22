@@ -11,21 +11,19 @@ class Utilisateur extends CI_Controller {
 
     function index() {
         $this->estConnecter();
-        $data["Utilisateurs"] = $this->UtilisateurModel->getUtilisateur();
-        $this->lancerVueUtilisateur($data);
+        $this->lancerVueUtilisateur();
     }
 
     public function submitAjout() {
         $this->estConnecter();
         $this->load->library('form_validation');
-        $this->form_validation->set_rules('i-nom', 'Nom', 'required|trim');
-        $this->form_validation->set_rules('i-mdp1', 'Mot de passe', 'required|min_length[8]|trim');
-        $this->form_validation->set_rules('i-mdp2', 'Confirmation du mot de passe', 'required|min_length[8]|trim|matches[i-mdp1]');
+        $this->form_validation->set_rules('i-nom', 'nom', 'required|trim');
+        $this->form_validation->set_rules('i-mdp1', 'mot de passe', 'required|min_length[8]|trim');
+        $this->form_validation->set_rules('i-mdp2', 'confirmer le mot de passe', 'required|min_length[8]|trim|matches[i-mdp1]');
         $this->form_validation->set_rules('options-type', 'Type connexion', 'required');
 
         if ($this->form_validation->run() == FALSE) {
-            echo "Erreur validation";
-            redirect('Utilisateur');
+            $this->lancerVueUtilisateur();
         } else {
             $nom = $this->input->post('i-nom');
             $prenom = $this->input->post('i-prenom');
@@ -33,7 +31,7 @@ class Utilisateur extends CI_Controller {
             $mdp = $this->input->post('i-mdp1');
 
             $this->UtilisateurModel->insererUtilisateur($nom, $type, $this->hash($mdp));
-            redirect('Utilisateur');
+            $this->lancerVueUtilisateur();
         }
     }
 
@@ -51,7 +49,8 @@ class Utilisateur extends CI_Controller {
         }
     }
 
-    private function lancerVueUtilisateur($data) {
+    private function lancerVueUtilisateur() {
+        $data["Utilisateurs"] = $this->UtilisateurModel->getUtilisateur();
         $this->load->view('Header_view');
         $this->load->view('Nav_view_user');
         $this->load->view('NavGauche_view');
@@ -67,8 +66,8 @@ class Utilisateur extends CI_Controller {
             redirect('Welcome');
         }
     }
-    
-        private function hash($string) {
+
+    private function hash($string) {
         return hash('sha512', $string . config_item('encryption_key'));
     }
 

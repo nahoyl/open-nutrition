@@ -34,6 +34,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="outer-div">
                 <div class="formulaire">
                     <h1 class="h1-text">Ajouter un utilisateur</h1>
+                    <?php 
+                    echo validation_errors(); 
+                    ?>
 
                     <form method="post" action="<?php echo base_url('index.php/Utilisateur/submitAjout'); ?>">
 

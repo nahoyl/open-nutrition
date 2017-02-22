@@ -44,6 +44,7 @@ class PlatCrous_model extends CI_Model {
             $query->where_not_in('compositionplat.nomPlat', $lesPlatsDejaAjouter);
         }
         $query = $query->where('typePlat', $type)
+                ->order_by('note5C', 'nomCompo')
                 ->get()
                 ->result();
         return $query;

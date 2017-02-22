@@ -28,16 +28,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="outer-div">
             <div class="formulaire">
                 <h1 class="h1-text">Connexion</h1>
+                <?php echo validation_errors();
+                ?>
 
                 <form method="post" action="<?php echo base_url('index.php/Connexion/seConnecter'); ?>">
 
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                        <input class="mdl-textfield__input" type="text" id="i-identifiant" required name="i-identifiant" value="abdel">
+                        <input class="mdl-textfield__input" type="text" id="i-identifiant" required name="i-identifiant" >
                         <label class="mdl-textfield__label" for="i-identifiant">Identifiant</label>
                     </div>
                     <br/>
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                        <input class="mdl-textfield__input" type="password" id="i-mdp" required name="i-mdp" value="abdelabdel">
+                        <input class="mdl-textfield__input" type="password" id="i-mdp" required name="i-mdp" >
                         <label class="mdl-textfield__label" for="i-mdp">Mot de passe</label>
                     </div>
                     <br/>
