@@ -33,7 +33,7 @@ class Connexion extends CI_Controller {
             $identifiant = $this->input->post('i-identifiant');
             $typeConnexion = $this->input->post('type-user');
 
-            $existeUtilisateur = $this->utilisateur->seConnecter($identifiant, $mdp, $typeConnexion);
+            $existeUtilisateur = $this->utilisateur->seConnecter($identifiant, $this->hash($mdp), $typeConnexion);
 
             if ($existeUtilisateur == TRUE) {
                 $this->ajouterUneSession($identifiant, $mdp, $typeConnexion);
@@ -45,6 +45,10 @@ class Connexion extends CI_Controller {
         }
     }
 
+    private function hash($string) {
+        return hash('sha512', $string . config_item('encryption_key'));
+    }
+
     public function deco() {
         $this->session->sess_destroy();
         redirect('Welcome');
@@ -54,7 +58,7 @@ class Connexion extends CI_Controller {
         $this->session->set_userdata("identifiant", $identifiant);
         $this->session->set_userdata("open_nutrition_date", date("l"));
         $this->session->set_userdata("open_nutrition_id", $this->encrypt->encode($typeConnexion));
-        
+
         if ($typeConnexion == "administrateur") {
             $this->session->set_userdata("open_nutrition", $this->encrypt->encode($typeConnexion));
         } else if ($typeConnexion == "utilisateur") {
