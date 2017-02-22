@@ -40,7 +40,7 @@ class Welcome extends CI_Controller {
     public function getAllergeneCO2($plat) {
         // enlever les espaces
         $plat = str_replace("%20", " ", $plat);
-        //$plat= $this->input->post('plat');
+        $plat = str_replace("%C3%A9", "é", $plat);
         $data["allergene"] = $this->PlatCrous->getPlatAllergene($plat);
         $data["Co2"] = $this->PlatCrous->getPlatCo2($plat);
         $data["nomPlat"] = $plat;
@@ -50,7 +50,7 @@ class Welcome extends CI_Controller {
 
     public function getListeTrier($plat, $deuxplat, $type) {
 
-        $lesCompo = $this->laCompoDesPlats($plat,$deuxplat);
+        $lesCompo = $this->laCompoDesPlats($plat, $deuxplat);
 
         $data["suggestion"] = $this->PlatCrous->getSuggestion($lesCompo, $type);
         $nbSuggestion = count($data["suggestion"]);
@@ -58,15 +58,13 @@ class Welcome extends CI_Controller {
         $lesPlatDejaAjouter = $this->lesPlatsAjouter($data["suggestion"]);
 
         $lesPlats = $this->PlatCrous->getPlatAvecComposition($lesPlatDejaAjouter, $type);
-//        var_dump($lesPlatDejaAjouter);
-//        var_dump($lesPlats);
-        
-        $data["suggestion"] = $this->reunirTousLesPlats($nbSuggestion,$data,$lesPlats);
-        
+
+        $data["suggestion"] = $this->reunirTousLesPlats($nbSuggestion, $data, $lesPlats);
+
         $this->load->view('Suggestion_view', $data);
     }
 
-    private function laCompoDesPlats($plat,$deuxplat) {
+    private function laCompoDesPlats($plat, $deuxplat) {
         $plat = str_replace("%20", " ", $plat);
         $compo = $this->PlatCrous->getComposition($plat);
         $lesCompo = null;
@@ -85,14 +83,16 @@ class Welcome extends CI_Controller {
 //        var_dump($lesCompo);
         return $lesCompo;
     }
+
     private function lesPlatsAjouter($data) {
         $lesPlatDejaAjouter = null;
         foreach ($data as $laCle => $unPlat) {
             $lesPlatDejaAjouter[$laCle] = $unPlat->nomPlat;
         }
-        return $lesPlatDejaAjouter;  
+        return $lesPlatDejaAjouter;
     }
-    private function reunirTousLesPlats($nbSuggestion,$data,$lesPlats){
+
+    private function reunirTousLesPlats($nbSuggestion, $data, $lesPlats) {
         foreach ($lesPlats as $unPlat) {
             $data["suggestion"][$nbSuggestion] = $unPlat;
             $nbSuggestion++;

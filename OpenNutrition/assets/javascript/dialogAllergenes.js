@@ -5,7 +5,7 @@ jQuery(document).ready(function () {
 function gestionDialog() {
     $('.nomplat').click(function () {
 //$(document).on('click','.nomplat',function(e){
-        var nomPlats = $(this).html();
+        var nomPlats = $(this).text();
         $.ajax({
             url: baseURL()+'/Welcome/getAllergeneCO2/' + nomPlats,
             type: 'get',
@@ -34,7 +34,7 @@ function gestionDialog() {
 }
 
 function baseURL(){
-    return 'http://192.168.0.48/open-nutrition/OpenNutrition/index.php';
+    return 'http://infolimon.iutmontp.univ-montp2.fr/~aitabdelloilia/open-nutrition/OpenNutrition/index.php';
 }
 
 

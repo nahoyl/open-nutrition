@@ -16,14 +16,14 @@ $allerg .= ".";
 
 <dialog id="dialog" class="mdl-dialog">
 <!--<dialog class="mdl-dialog" id="modal-example">-->
-    <h3 class="mdl-dialog__title"><p class ="note note<?php echo $notePlat; ?>"><?php echo $notePlat; ?></p> <?php echo $nomPlat; ?> </h3>
+    <h5 class="mdl-dialog__title"><p class ="note note<?php echo $notePlat; ?>"><?php echo $notePlat; ?></p> <?php echo $nomPlat; ?> </h5>
     <div class="mdl-dialog__content">
-      <h4> Allergenes :</h4>
+      <h6> Allergenes :</h6>
         <p class='allergene'>
             <?php echo $allerg;?>
         </p>
         
-        <h4>Gaz a effet de serre :</h4>
+        <h6>Gaz a effet de serre :</h6>
         <p class="co2">
             <?php echo $Co2;?>
         </p>

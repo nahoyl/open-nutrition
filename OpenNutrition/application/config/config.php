@@ -23,7 +23,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'http://192.168.0.48/open-nutrition/OpenNutrition/';
+$config['base_url'] = 'http://infolimon.iutmontp.univ-montp2.fr/~aitabdelloilia/open-nutrition/OpenNutrition/';
 
 /*
 |--------------------------------------------------------------------------
